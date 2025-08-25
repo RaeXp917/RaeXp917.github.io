@@ -21,7 +21,7 @@ body.light-theme {
     --border-color: #dddddd;
 }
 
-html { scroll-behavior: smooth; scroll-padding-top: 20px; }
+html { scroll-behavior: smooth; scroll-padding-top: 80px; }
 
 body { background-color: var(--bg-color); color: var(--text-color); font-family: 'Poppins', sans-serif; margin: 0; line-height: 1.7; text-align: center; transition: background-color 0.4s var(--easing-curve), color 0.4s var(--easing-curve); }
 
@@ -33,9 +33,48 @@ body { background-color: var(--bg-color); color: var(--text-color); font-family:
 .loader { height: 30px; aspect-ratio: 2.5; --_g: no-repeat radial-gradient(farthest-side,var(--primary-color) 90%,#0000); background: var(--_g), var(--_g), var(--_g), var(--_g); background-size: 20% 50%; animation: l44 1s infinite linear alternate; }
 @keyframes l44 { 0%,5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% } 12.5% {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% } 25% {background-position: calc(0*100%/3) 0   ,calc(1*100%/3) 0   ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% } 37.5% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 0   ,calc(2*100%/3) 0   ,calc(3*100%/3) 50% } 50% {background-position: calc(0*100%/3) 100%,calc(1*100%/3) 100%,calc(2*100%/3) 0   ,calc(3*100%/3) 0   } 62.5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 100%,calc(2*100%/3) 100%,calc(3*100%/3) 0   } 75% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 100%,calc(3*100%/3) 100%} 87.5% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 100%} 95%,100% {background-position: calc(0*100%/3) 50% ,calc(1*100%/3) 50% ,calc(2*100%/3) 50% ,calc(3*100%/3) 50% } }
 
+/* --- Floating Side Navigation --- */
+#side-nav {
+    position: fixed;
+    top: 50%;
+    left: 35px;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem; /* UPDATED: Increased spacing to 40px */
+    z-index: 1000;
+}
+#side-nav a {
+    color: var(--text-color);
+    opacity: 0.7;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.1rem; /* UPDATED: Increased font size */
+    padding: 5px 10px;
+    text-align: left;
+    transition: color 0.4s var(--easing-curve), opacity 0.4s var(--easing-curve), text-shadow 0.4s var(--easing-curve);
+}
+#side-nav a.nav-active {
+    color: var(--heading-color);
+    opacity: 1;
+    animation: text-glow 2.5s infinite alternate;
+}
+
+@keyframes text-glow {
+    from {
+        text-shadow: 0 0 4px #fff, 0 0 8px #fff, 0 0 12px #fff;
+    }
+    to {
+        text-shadow: 0 0 8px #fff, 0 0 16px #fff, 0 0 24px #fff;
+    }
+}
+
+/* --- Hamburger Menu & Mobile Nav --- */
+.hamburger-menu, .mobile-nav { display: none; }
+
 /* --- Header & Hero --- */
-.hero { background: var(--surface-color); padding: 60px 20px; position: relative; }
-.header-controls { display: flex; align-items: center; gap: 20px; position: absolute; top: 20px; right: 20px; z-index: 3; }
+.hero { background: var(--surface-color); padding-top: 60px; padding-bottom: 60px; position: relative; }
+.header-controls { display: flex; align-items: center; gap: 20px; position: absolute; top: 20px; right: 20px; z-index: 1001; }
 .profile-pic { width: 220px; height: 220px; border-radius: 50%; border: 4px solid var(--primary-color); object-fit: cover; margin-bottom: 20px; }
 .hero h1 { font-size: 3rem; margin: 10px 0; font-weight: 700; color: var(--heading-color); }
 .hero .subtitle { font-size: 1.2rem; opacity: 0.8; margin: 0; font-weight: 400; color: var(--text-color); }
@@ -73,21 +112,22 @@ section { transition: background-color 0.4s var(--easing-curve); }
 
 /* --- "Favorite Project" Styling --- */
 .favorite-project-item { text-align: left; margin-bottom: 80px; }
-
 .project-logo-centered { display: block; max-width: 300px; margin: 0 auto 40px auto; }
 .project-media-centered { width: 100%; min-height: 200px; background-color: var(--surface-color); border: 2px dashed var(--border-color); border-radius: 8px; display: flex; justify-content: center; align-items: center; color: #666; margin: 0 auto 40px auto; }
-
 .project-text-centered { text-align: left; }
-
 .favorite-project-item .project-subtitle { text-align: center; font-size: 1.7rem; font-weight: 600; color: var(--primary-color); margin-top: 0; margin-bottom: 20px; line-height: 1.3; }
+.project-description-subtitle { text-align: center; font-size: 1.1rem; font-style: italic; opacity: 0.8; margin-top: -15px; margin-bottom: 25px; }
 .favorite-project-item h4 { margin-top: 30px; font-size: 1.2rem; font-weight: 700; color: var(--heading-color); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 25px;}
 .favorite-project-item .key-contributions { list-style: none; padding-left: 0; }
 .favorite-project-item .key-contributions li { padding-left: 30px; position: relative; margin-bottom: 18px; }
 .favorite-project-item .key-contributions li::before { content: '✓'; color: var(--primary-color); position: absolute; left: 0; font-weight: 700; font-size: 1.2rem; top: 2px;}
 .tech-tags { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
 .tech-tags span { background-color: var(--surface-color); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 0.9rem; font-weight: 600; }
-
 .project-buttons { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+
+/* --- Project Highlight Effect --- */
+.highlight { animation: highlight-pulse 1.5s var(--easing-curve); border-radius: 22px; }
+@keyframes highlight-pulse { 0% { box-shadow: 0 0 0 0 rgba(155, 89, 182, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(155, 89, 182, 0); } 100% { box-shadow: 0 0 0 0 rgba(155, 89, 182, 0); } }
 
 /* --- Project Grid for "Other Projects" --- */
 .project-grid { display: grid; grid-template-columns: 1fr; gap: 40px; text-align: left; }
@@ -128,10 +168,58 @@ body.light-theme .social-links a[title="GitHub"]:hover svg { fill: #000; }
 .fade-in.visible { opacity: 1; transform: translateY(0); }
 
 /* --- Responsive Design --- */
-@media (max-width: 768px) {
+@media (max-width: 1100px) {
+    /* Hide side nav on smaller screens, show mobile hamburger */
+    #side-nav { display: none; }
+
+    .hamburger-menu {
+        display: flex;
+        position: fixed;
+        top: 20px;
+        left: 20px;
+        z-index: 1002;
+        width: 40px;
+        height: 40px;
+        background-color: var(--surface-color);
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        cursor: pointer;
+        flex-direction: column;
+        justify-content: space-around;
+        padding: 8px;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        transition: all 0.3s var(--easing-curve);
+    }
+    .hamburger-menu span { display: block; width: 100%; height: 3px; background-color: var(--heading-color); border-radius: 3px; transition: all 0.3s var(--easing-curve); }
+    .hamburger-menu.active span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
+    .hamburger-menu.active span:nth-child(2) { opacity: 0; }
+    .hamburger-menu.active span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
+
+    .mobile-nav {
+        display: flex;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 250px;
+        height: 100vh;
+        background-color: var(--surface-color);
+        z-index: 1001;
+        flex-direction: column;
+        padding-top: 80px;
+        transform: translateX(-100%);
+        transition: transform 0.4s var(--easing-curve);
+        box-shadow: 5px 0 15px rgba(0,0,0,0.2);
+    }
+    .mobile-nav.open { transform: translateX(0); }
+    .mobile-nav a { color: var(--text-color); text-decoration: none; font-size: 1.1rem; font-weight: 600; padding: 15px 30px; transition: background-color 0.2s, color 0.2s; text-align: left; border-left: 4px solid transparent; }
+    .mobile-nav a:hover { background-color: var(--bg-color); }
+    .mobile-nav a.nav-active { color: var(--primary-color); border-left-color: var(--primary-color); background-color: var(--bg-color); }
+
     .hero h1 { font-size: 2.5rem; }
     .profile-pic { width: 180px; height: 180px; }
     .project-logo-centered { max-width: 200px; }
+    .header-controls { right: 10px; }
+    .hero { padding-top: 80px; } /* Add padding to not overlap with controls */
 }
 
 @media (min-width: 768px) {
