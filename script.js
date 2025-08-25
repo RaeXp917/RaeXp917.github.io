@@ -47,7 +47,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- NEW FEATURE 4: Automatically Fetch GitHub Projects ---
+    // --- FEATURE 4: Automatically Fetch GitHub Projects ---
     const GITHUB_USERNAME = 'RaeXp917';
     const projectGrid = document.getElementById('project-grid');
 
@@ -68,8 +68,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 repo.name !== GITHUB_USERNAME
             );
             
-            // Limit to the latest projects (e.g., 3, to make a total of 4 with the featured one)
-            const projectsToShow = filteredRepos.slice(0, 3);
+            // Limit to the latest projects 
+            const projectsToShow = filteredRepos.slice(0, 4);
 
             projectsToShow.forEach(repo => {
                 const projectCardHTML = `
@@ -87,7 +87,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
             console.error("Failed to fetch GitHub projects:", error);
-            projectGrid.innerHTML += `<p>Could not load projects from GitHub.</p>`;
+            // Don't show an error on the page, just log it. The section will remain empty.
         }
     }
 
