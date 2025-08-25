@@ -75,7 +75,7 @@ body {
 /* --- General Section Styling --- */
 h2 { font-size: 2.5rem; margin-bottom: 40px; color: var(--heading-color); }
 section { transition: background-color 0.4s var(--easing-curve); }
-#summary, #skills, #contact { background-color: var(--surface-color); }
+#summary, #skills, #contact, #other-projects { background-color: var(--surface-color); }
 
 /* --- Featured Project Section --- */
 #featured-project { background-color: var(--bg-color); }
