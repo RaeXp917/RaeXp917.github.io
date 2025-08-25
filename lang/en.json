@@ -1,7 +1,7 @@
 {
   "title": "Klearxos Xlioumphs - Software Developer",
   "heroTitle": "Klearxos Xlioumphs",
-  "heroSubtitle": "Motivated Software Developer | Android & Kotlin Specialist",
+  "heroSubtitle": "Software Developer | Android & Backend Enthusiast",
   "githubButton": "View My GitHub",
   "summaryTitle": "Summary",
   "summaryText": "Motivated Software Developer, currently in my first year of a two-year Backend Development program at <strong>IEK DELTA 360</strong>. With a strong foundation and hands-on experience in Kotlin and Android development, I am eager to contribute to real-world projects, grow within a collaborative team, and build scalable, clean coding solutions.",
@@ -12,6 +12,7 @@
   "skillsSubIDEs": "IDEs",
   "skillsSubTools": "Developer Tools",
   "projectsTitle": "Featured Projects",
+  "pharmacyTitle": "E-Efimerevon",
   "pharmacySubtitle": "Modern Android App for On-Duty Pharmacies",
   "pharmacyDescription": "A native Android application designed to help users instantly locate on-duty pharmacies. The app is built on a modern tech stack with a focus on clean architecture and a fluid, responsive user interface. It serves as a practical tool for everyday use, demonstrating skills in mobile development, real-time data handling, and user-centric design.",
   "pharmacyKeyFeatures": "Key Features & Contributions:",
@@ -32,7 +33,12 @@
   "contactTitle": "Get In Touch",
   "contactText": "I'm always open to discussing new projects and opportunities.",
   "contactButton": "Email Me",
-  "footerRights": "All rights reserved.",
   "viewLiveSite": "View Live Site",
-  "viewOnGithub": "View on GitHub"
+  "viewOnGithub": "View on GitHub",
+  "navSummary": "Summary",
+  "navSkills": "Skills",
+  "navFeatured": "Featured Projects",
+  "navOther": "Other Projects",
+  "navContact": "Contact",
+  "footerRights": "All rights reserved."
 }
