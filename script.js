@@ -61,19 +61,25 @@ document.addEventListener('DOMContentLoaded', () => {
             }
             const repos = await response.json();
 
-            // Filter out the portfolio repo itself and the profile README
             const filteredRepos = repos.filter(repo => 
                 !repo.fork && 
                 repo.name !== `${GITHUB_USERNAME}.github.io` &&
                 repo.name !== GITHUB_USERNAME
             );
             
-            // Limit to the latest projects 
             const projectsToShow = filteredRepos.slice(0, 4);
 
             projectsToShow.forEach(repo => {
+                // Check if this is the Kotlin project to assign a special ID
+                let cardId = '';
+                // The repo for your "E-Efimerevon" project likely has 'pharmacy' in its name.
+                // We use this to identify it. Adjust the keyword if your repo is named differently.
+                if (repo.name.toLowerCase().includes('pharmacy')) {
+                    cardId = ' id="project-e-efimerevon"';
+                }
+
                 const projectCardHTML = `
-                    <div class="glow-card">
+                    <div class="glow-card"${cardId}>
                         <div class="project-card">
                             <h3>${repo.name.replace(/-/g, ' ')}</h3>
                             <p>${repo.description || 'No description provided.'}</p>
@@ -87,9 +93,40 @@ document.addEventListener('DOMContentLoaded', () => {
 
         } catch (error) {
             console.error("Failed to fetch GitHub projects:", error);
-            // Don't show an error on the page, just log it. The section will remain empty.
         }
     }
 
-    fetchGitHubProjects();
+    // --- NEW FEATURE 5: Interactive Skill Links ---
+    function setupSkillLinks() {
+        const skillLinks = document.querySelectorAll('a.skill-tag');
+        skillLinks.forEach(link => {
+            link.addEventListener('click', (event) => {
+                event.preventDefault();
+                const targetId = link.dataset.targetId;
+                const targetElement = document.getElementById(targetId);
+
+                if (targetElement) {
+                    // Scroll to the project
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'center'
+                    });
+
+                    // Add highlight class
+                    targetElement.classList.add('highlight');
+
+                    // Remove highlight after animation
+                    setTimeout(() => {
+                        targetElement.classList.remove('highlight');
+                    }, 1500); // 1.5 seconds
+                }
+            });
+        });
+    }
+
+    // Run the fetch function, and *then* run the setup for skill links
+    fetchGitHubProjects().then(() => {
+        setupSkillLinks();
+    });
+
 });
