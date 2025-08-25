@@ -41,8 +41,16 @@
         <a href="#contact" data-key="navContact">Contact</a>
     </nav>
 
-
+    <!-- HERO SECTION WITH NEW BACKGROUND AND GLASS PANEL -->
     <header class="hero" id="hero">
+        <!-- The new smokey/wavy background effect -->
+        <div class="aurora-bg">
+          <div class="aurora__item"></div>
+          <div class="aurora__item"></div>
+          <div class="aurora__item"></div>
+          <div class="aurora__item"></div>
+        </div>
+
         <div class="header-controls">
             <div class="toggle-switch">
                 <input type="checkbox" class="checkbox" id="theme-toggle">
@@ -53,12 +61,16 @@
                 </label>
             </div>
         </div>
+
         <div class="container hero-content">
-            <img src="profile.jpg" alt="Klearxos Xlioumphs profile picture" class="profile-pic fade-in">
-            <h1 class="fade-in" data-key="heroTitle">Klearxos Xlioumphs</h1>
-            <p class="subtitle fade-in" data-key="heroSubtitle">Software Developer | Android & Backend Enthusiast</p>
-            <div class="hero-buttons fade-in">
-                <a href="https://github.com/RaeXp917" target="_blank" class="cta-button secondary" data-key="githubButton">View My GitHub</a>
+            <!-- New Glass Panel for your content -->
+            <div class="hero-glass-panel">
+                <img src="profile.jpg" alt="Klearxos Xlioumphs profile picture" class="profile-pic fade-in">
+                <h1 class="fade-in" data-key="heroTitle">Klearxos Xlioumphs</h1>
+                <p class="subtitle fade-in" data-key="heroSubtitle">Software Developer | Android & Backend Enthusiast</p>
+                <div class="hero-buttons fade-in">
+                    <a href="https://github.com/RaeXp917" target="_blank" class="cta-button secondary" data-key="githubButton">View My GitHub</a>
+                </div>
             </div>
         </div>
     </header>
@@ -116,46 +128,13 @@
                     <div class="tech-tags">
                         <span>Unreal Engine</span><span>C++</span><span>C#</span><span>Slate UI</span><span>GitHub</span>
                     </div>
-
-                    <!-- ContextNexus Animated Illustration -->
                     <div class="project-illustration-container">
                         <div id="contextnexus-animation" class="contextnexus-illustration">
-                            <!-- C++ Code Block -->
-                            <div class="code code-cpp">
-                                <header>
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.9999 6.675L13.1999 6.075C12.9999 5.975 12.8999 5.775 12.9999 5.675L13.8999 3.975C14.4999 2.775 13.1999 1.475 11.9999 2.075L10.2999 2.975C10.1999 3.075 9.9999 2.975 9.8999 2.775L9.2999 0.975C8.8999 -0.325 7.0999 -0.325 6.6999 0.975L6.0999 2.775C5.9999 2.975 5.7999 3.075 5.6999 2.975L3.9999 2.075C2.7999 1.475 1.4999 2.775 2.0999 3.975L2.9999 5.675C3.0999 5.775 2.9999 5.975 2.7999 6.075L0.999902 6.675C-0.300098 7.075 -0.300098 8.975 0.999902 9.375L2.7999 9.975C2.9999 9.975 3.0999 10.175 2.9999 10.275L2.0999 11.975C1.4999 13.175 2.7999 14.475 3.9999 13.875L5.6999 12.975C5.8999 12.875 6.0999 12.975 6.0999 13.175L6.6999 14.975C7.0999 16.275 8.9999 16.275 9.3999 14.975L9.9999 13.175C10.0999 12.975 10.2999 12.875 10.3999 12.975L12.0999 13.875C13.2999 14.475 14.5999 13.175 13.9999 11.975L12.9999 10.275C12.8999 10.075 12.9999 9.875 13.1999 9.875L14.9999 9.275C16.2999 8.875 16.2999 7.075 14.9999 6.675ZM7.9999 10.375C6.6999 10.375 5.5999 9.275 5.5999 7.975C5.5999 6.675 6.6999 5.575 7.9999 5.575C9.2999 5.575 10.3999 6.675 10.3999 7.975C10.3999 9.275 9.2999 10.375 7.9999 10.375Z" fill="#4C4F5A"/></svg>
-                                    <h1>C++</h1>
-                                </header>
-                                <div class="code-content">
-                                    <code>
-                                        <p class="line-1"><span class="c-p">class</span> <span class="c-g">UAnalysisEngine</span> {</p>
-                                        <p class="line-2"><span class="c-y">public</span>:</p>
-                                        <p class="line-3"><span class="c-b">void</span> <span class="c-o">ParseSource</span>(<span class="c-b">FString</span>& Code);</p>
-                                        <p class="line-4"><span class="c-c">// ... core logic ...</span></p>
-                                        <p class="line-5">};</p>
-                                    </code>
-                                </div>
-                            </div>
-                            <!-- C# Code Block -->
-                            <div class="code code-csharp">
-                                <header>
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.9999 6.675L13.1999 6.075C12.9999 5.975 12.8999 5.775 12.9999 5.675L13.8999 3.975C14.4999 2.775 13.1999 1.475 11.9999 2.075L10.2999 2.975C10.1999 3.075 9.9999 2.975 9.8999 2.775L9.2999 0.975C8.8999 -0.325 7.0999 -0.325 6.6999 0.975L6.0999 2.775C5.9999 2.975 5.7999 3.075 5.6999 2.975L3.9999 2.075C2.7999 1.475 1.4999 2.775 2.0999 3.975L2.9999 5.675C3.0999 5.775 2.9999 5.975 2.7999 6.075L0.999902 6.675C-0.300098 7.075 -0.300098 8.975 0.999902 9.375L2.7999 9.975C2.9999 9.975 3.0999 10.175 2.9999 10.275L2.0999 11.975C1.4999 13.175 2.7999 14.475 3.9999 13.875L5.6999 12.975C5.8999 12.875 6.0999 12.975 6.0999 13.175L6.6999 14.975C7.0999 16.275 8.9999 16.275 9.3999 14.975L9.9999 13.175C10.0999 12.975 10.2999 12.875 10.3999 12.975L12.0999 13.875C13.2999 14.475 14.5999 13.175 13.9999 11.975L12.9999 10.275C12.8999 10.075 12.9999 9.875 13.1999 9.875L14.9999 9.275C16.2999 8.875 16.2999 7.075 14.9999 6.675ZM7.9999 10.375C6.6999 10.375 5.5999 9.275 5.5999 7.975C5.5999 6.675 6.6999 5.575 7.9999 5.575C9.2999 5.575 10.3999 6.675 10.3999 7.975C10.3999 9.275 9.2999 10.375 7.9999 10.375Z" fill="#4C4F5A"/></svg>
-                                    <h1>C#</h1>
-                                </header>
-                                <div class="code-content">
-                                    <code>
-                                        <p class="line-1"><span class="c-p">public</span> <span class="c-p">class</span> <span class="c-g">SlateUI</span> {</p>
-                                        <p class="line-2"><span class="c-c">// Build the UI</span></p>
-                                        <p class="line-3"><span class="c-p">public</span> <span class="c-b">Widget</span> <span class="c-o">CreateExplorer</span>()</p>
-                                        <p class="line-4">{ ... }</p>
-                                        <p class="line-5">}</p>
-                                    </code>
-                                </div>
-                            </div>
+                            <div class="code code-cpp"><header><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.9999 6.675L13.1999 6.075C12.9999 5.975 12.8999 5.775 12.9999 5.675L13.8999 3.975C14.4999 2.775 13.1999 1.475 11.9999 2.075L10.2999 2.975C10.1999 3.075 9.9999 2.975 9.8999 2.775L9.2999 0.975C8.8999 -0.325 7.0999 -0.325 6.6999 0.975L6.0999 2.775C5.9999 2.975 5.7999 3.075 5.6999 2.975L3.9999 2.075C2.7999 1.475 1.4999 2.775 2.0999 3.975L2.9999 5.675C3.0999 5.775 2.9999 5.975 2.7999 6.075L0.999902 6.675C-0.300098 7.075 -0.300098 8.975 0.999902 9.375L2.7999 9.975C2.9999 9.975 3.0999 10.175 2.9999 10.275L2.0999 11.975C1.4999 13.175 2.7999 14.475 3.9999 13.875L5.6999 12.975C5.8999 12.875 6.0999 12.975 6.0999 13.175L6.6999 14.975C7.0999 16.275 8.9999 16.275 9.3999 14.975L9.9999 13.175C10.0999 12.975 10.2999 12.875 10.3999 12.975L12.0999 13.875C13.2999 14.475 14.5999 13.175 13.9999 11.975L12.9999 10.275C12.8999 10.075 12.9999 9.875 13.1999 9.875L14.9999 9.275C16.2999 8.875 16.2999 7.075 14.9999 6.675ZM7.9999 10.375C6.6999 10.375 5.5999 9.275 5.5999 7.975C5.5999 6.675 6.6999 5.575 7.9999 5.575C9.2999 5.575 10.3999 6.675 10.3999 7.975C10.3999 9.275 9.2999 10.375 7.9999 10.375Z" fill="#4C4F5A"/></svg><h1>C++</h1></header><div class="code-content"><code><p class="line-1"><span class="c-p">class</span> <span class="c-g">UAnalysisEngine</span> {</p><p class="line-2"><span class="c-y">public</span>:</p><p class="line-3"><span class="c-b">void</span> <span class="c-o">ParseSource</span>(<span class="c-b">FString</span>& Code);</p><p class="line-4"><span class="c-c">// ... core logic ...</span></p><p class="line-5">};</p></code></div></div>
+                            <div class="code code-csharp"><header><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.9999 6.675L13.1999 6.075C12.9999 5.975 12.8999 5.775 12.9999 5.675L13.8999 3.975C14.4999 2.775 13.1999 1.475 11.9999 2.075L10.2999 2.975C10.1999 3.075 9.9999 2.975 9.8999 2.775L9.2999 0.975C8.8999 -0.325 7.0999 -0.325 6.6999 0.975L6.0999 2.775C5.9999 2.975 5.7999 3.075 5.6999 2.975L3.9999 2.075C2.7999 1.475 1.4999 2.775 2.0999 3.975L2.9999 5.675C3.0999 5.775 2.9999 5.975 2.7999 6.075L0.999902 6.675C-0.300098 7.075 -0.300098 8.975 0.999902 9.375L2.7999 9.975C2.9999 9.975 3.0999 10.175 2.9999 10.275L2.0999 11.975C1.4999 13.175 2.7999 14.475 3.9999 13.875L5.6999 12.975C5.8999 12.875 6.0999 12.975 6.0999 13.175L6.6999 14.975C7.0999 16.275 8.9999 16.275 9.3999 14.975L9.9999 13.175C10.0999 12.975 10.2999 12.875 10.3999 12.975L12.0999 13.875C13.2999 14.475 14.5999 13.175 13.9999 11.975L12.9999 10.275C12.8999 10.075 12.9999 9.875 13.1999 9.875L14.9999 9.275C16.2999 8.875 16.2999 7.075 14.9999 6.675ZM7.9999 10.375C6.6999 10.375 5.5999 9.275 5.5999 7.975C5.5999 6.675 6.6999 5.575 7.9999 5.575C9.2999 5.575 10.3999 6.675 10.3999 7.975C10.3999 9.275 9.2999 10.375 7.9999 10.375Z" fill="#4C4F5A"/></svg><h1>C#</h1></header><div class="code-content"><code><p class="line-1"><span class="c-p">public</span> <span class="c-p">class</span> <span class="c-g">SlateUI</span> {</p><p class="line-2"><span class="c-c">// Build the UI</span></p><p class="line-3"><span class="c-p">public</span> <span class="c-b">Widget</span> <span class="c-o">CreateExplorer</span>()</p><p class="line-4">{ ... }</p><p class="line-5">}</p></code></div></div>
                             <div class="editor-block"></div>
                         </div>
                     </div>
-                    
                     <div class="project-buttons">
                          <a href="https://www.contextnexus.dev/" target="_blank" class="cta-button" data-key="viewLiveSite">View Live Site</a>
                     </div>
@@ -179,46 +158,13 @@
                     <div class="tech-tags">
                         <span>Kotlin</span><span>Jetpack Compose</span><span>MVVM</span><span>Firebase</span><span>Firestore</span><span>OSM</span>
                     </div>
-
-                    <!-- E-Efimerevon Animated Illustration -->
                     <div class="project-illustration-container">
                         <div id="e-efimerevon-animation" class="contextnexus-illustration">
-                            <!-- Kotlin Code Block -->
-                            <div class="code code-kotlin">
-                                <header>
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.9999 6.675L13.1999 6.075C12.9999 5.975 12.8999 5.775 12.9999 5.675L13.8999 3.975C14.4999 2.775 13.1999 1.475 11.9999 2.075L10.2999 2.975C10.1999 3.075 9.9999 2.975 9.8999 2.775L9.2999 0.975C8.8999 -0.325 7.0999 -0.325 6.6999 0.975L6.0999 2.775C5.9999 2.975 5.7999 3.075 5.6999 2.975L3.9999 2.075C2.7999 1.475 1.4999 2.775 2.0999 3.975L2.9999 5.675C3.0999 5.775 2.9999 5.975 2.7999 6.075L0.999902 6.675C-0.300098 7.075 -0.300098 8.975 0.999902 9.375L2.7999 9.975C2.9999 9.975 3.0999 10.175 2.9999 10.275L2.0999 11.975C1.4999 13.175 2.7999 14.475 3.9999 13.875L5.6999 12.975C5.8999 12.875 6.0999 12.975 6.0999 13.175L6.6999 14.975C7.0999 16.275 8.9999 16.275 9.3999 14.975L9.9999 13.175C10.0999 12.975 10.2999 12.875 10.3999 12.975L12.0999 13.875C13.2999 14.475 14.5999 13.175 13.9999 11.975L12.9999 10.275C12.8999 10.075 12.9999 9.875 13.1999 9.875L14.9999 9.275C16.2999 8.875 16.2999 7.075 14.9999 6.675ZM7.9999 10.375C6.6999 10.375 5.5999 9.275 5.5999 7.975C5.5999 6.675 6.6999 5.575 7.9999 5.575C9.2999 5.575 10.3999 6.675 10.3999 7.975C10.3999 9.275 9.2999 10.375 7.9999 10.375Z" fill="#4C4F5A"/></svg>
-                                    <h1>Kotlin</h1>
-                                </header>
-                                <div class="code-content">
-                                    <code>
-                                        <p class="line-1"><span class="c-p">class</span> <span class="c-g">PharmacyViewModel</span> {</p>
-                                        <p class="line-2"><span class="c-c">// Fetch from Firestore</span></p>
-                                        <p class="line-3"><span class="c-p">fun</span> <span class="c-o">loadPharmacies</span>() {</p>
-                                        <p class="line-4"><span class="c-c">// ... suspend fun ...</span></p>
-                                        <p class="line-5">}</p>
-                                    </code>
-                                </div>
-                            </div>
-                            <!-- Jetpack Compose Code Block -->
-                            <div class="code code-compose">
-                                <header>
-                                    <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.9999 6.675L13.1999 6.075C12.9999 5.975 12.8999 5.775 12.9999 5.675L13.8999 3.975C14.4999 2.775 13.1999 1.475 11.9999 2.075L10.2999 2.975C10.1999 3.075 9.9999 2.975 9.8999 2.775L9.2999 0.975C8.8999 -0.325 7.0999 -0.325 6.6999 0.975L6.0999 2.775C5.9999 2.975 5.7999 3.075 5.6999 2.975L3.9999 2.075C2.7999 1.475 1.4999 2.775 2.0999 3.975L2.9999 5.675C3.0999 5.775 2.9999 5.975 2.7999 6.075L0.999902 6.675C-0.300098 7.075 -0.300098 8.975 0.999902 9.375L2.7999 9.975C2.9999 9.975 3.0999 10.175 2.9999 10.275L2.0999 11.975C1.4999 13.175 2.7999 14.475 3.9999 13.875L5.6999 12.975C5.8999 12.875 6.0999 12.975 6.0999 13.175L6.6999 14.975C7.0999 16.275 8.9999 16.275 9.3999 14.975L9.9999 13.175C10.0999 12.975 10.2999 12.875 10.3999 12.975L12.0999 13.875C13.2999 14.475 14.5999 13.175 13.9999 11.975L12.9999 10.275C12.8999 10.075 12.9999 9.875 13.1999 9.875L14.9999 9.275C16.2999 8.875 16.2999 7.075 14.9999 6.675ZM7.9999 10.375C6.6999 10.375 5.5999 9.275 5.5999 7.975C5.5999 6.675 6.6999 5.575 7.9999 5.575C9.2999 5.575 10.3999 6.675 10.3999 7.975C10.3999 9.275 9.2999 10.375 7.9999 10.375Z" fill="#4C4F5A"/></svg>
-                                    <h1>Compose</h1>
-                                </header>
-                                <div class="code-content">
-                                    <code>
-                                        <p class="line-1"><span class="c-y">@Composable</span></p>
-                                        <p class="line-2"><span class="c-p">fun</span> <span class="c-g">PharmacyList</span>() {</p>
-                                        <p class="line-3"><span class="c-b">LazyColumn</span> {</p>
-                                        <p class="line-4"><span class="c-c">// ... items ...</span></p>
-                                        <p class="line-5">}</p>
-                                    </code>
-                                </div>
-                            </div>
+                            <div class="code code-kotlin"><header><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.9999 6.675L13.1999 6.075C12.9999 5.975 12.8999 5.775 12.9999 5.675L13.8999 3.975C14.4999 2.775 13.1999 1.475 11.9999 2.075L10.2999 2.975C10.1999 3.075 9.9999 2.975 9.8999 2.775L9.2999 0.975C8.8999 -0.325 7.0999 -0.325 6.6999 0.975L6.0999 2.775C5.9999 2.975 5.7999 3.075 5.6999 2.975L3.9999 2.075C2.7999 1.475 1.4999 2.775 2.0999 3.975L2.9999 5.675C3.0999 5.775 2.9999 5.975 2.7999 6.075L0.999902 6.675C-0.300098 7.075 -0.300098 8.975 0.999902 9.375L2.7999 9.975C2.9999 9.975 3.0999 10.175 2.9999 10.275L2.0999 11.975C1.4999 13.175 2.7999 14.475 3.9999 13.875L5.6999 12.975C5.8999 12.875 6.0999 12.975 6.0999 13.175L6.6999 14.975C7.0999 16.275 8.9999 16.275 9.3999 14.975L9.9999 13.175C10.0999 12.975 10.2999 12.875 10.3999 12.975L12.0999 13.875C13.2999 14.475 14.5999 13.175 13.9999 11.975L12.9999 10.275C12.8999 10.075 12.9999 9.875 13.1999 9.875L14.9999 9.275C16.2999 8.875 16.2999 7.075 14.9999 6.675ZM7.9999 10.375C6.6999 10.375 5.5999 9.275 5.5999 7.975C5.5999 6.675 6.6999 5.575 7.9999 5.575C9.2999 5.575 10.3999 6.675 10.3999 7.975C10.3999 9.275 9.2999 10.375 7.9999 10.375Z" fill="#4C4F5A"/></svg><h1>Kotlin</h1></header><div class="code-content"><code><p class="line-1"><span class="c-p">class</span> <span class="c-g">PharmacyViewModel</span> {</p><p class="line-2"><span class="c-c">// Fetch from Firestore</span></p><p class="line-3"><span class="c-p">fun</span> <span class="c-o">loadPharmacies</span>() {</p><p class="line-4"><span class="c-c">// ... suspend fun ...</span></p><p class="line-5">}</p></code></div></div>
+                            <div class="code code-compose"><header><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.9999 6.675L13.1999 6.075C12.9999 5.975 12.8999 5.775 12.9999 5.675L13.8999 3.975C14.4999 2.775 13.1999 1.475 11.9999 2.075L10.2999 2.975C10.1999 3.075 9.9999 2.975 9.8999 2.775L9.2999 0.975C8.8999 -0.325 7.0999 -0.325 6.6999 0.975L6.0999 2.775C5.9999 2.975 5.7999 3.075 5.6999 2.975L3.9999 2.075C2.7999 1.475 1.4999 2.775 2.0999 3.975L2.9999 5.675C3.0999 5.775 2.9999 5.975 2.7999 6.075L0.999902 6.675C-0.300098 7.075 -0.300098 8.975 0.999902 9.375L2.7999 9.975C2.9999 9.975 3.0999 10.175 2.9999 10.275L2.0999 11.975C1.4999 13.175 2.7999 14.475 3.9999 13.875L5.6999 12.975C5.8999 12.875 6.0999 12.975 6.0999 13.175L6.6999 14.975C7.0999 16.275 8.9999 16.275 9.3999 14.975L9.9999 13.175C10.0999 12.975 10.2999 12.875 10.3999 12.975L12.0999 13.875C13.2999 14.475 14.5999 13.175 13.9999 11.975L12.9999 10.275C12.8999 10.075 12.9999 9.875 13.1999 9.875L14.9999 9.275C16.2999 8.875 16.2999 7.075 14.9999 6.675ZM7.9999 10.375C6.6999 10.375 5.5999 9.275 5.5999 7.975C5.5999 6.675 6.6999 5.575 7.9999 5.575C9.2999 5.575 10.3999 6.675 10.3999 7.975C10.3999 9.275 9.2999 10.375 7.9999 10.375Z" fill="#4C4F5A"/></svg><h1>Compose</h1></header><div class="code-content"><code><p class="line-1"><span class="c-y">@Composable</span></p><p class="line-2"><span class="c-p">fun</span> <span class="c-g">PharmacyList</span>() {</p><p class="line-3"><span class="c-b">LazyColumn</span> {</p><p class="line-4"><span class="c-c">// ... items ...</span></p><p class="line-5">}</p></code></div></div>
                             <div class="editor-block"></div>
                         </div>
                     </div>
-                    
                     <div class="project-buttons">
                         <a href="https://github.com/RaeXp917/On-Duty-Pharmacies-App" target="_blank" class="cta-button" data-key="viewOnGithub">View on GitHub</a>
                     </div>
@@ -234,7 +180,6 @@
              </div>
         </section>
 
-        <!-- RESUME SECTION -->
         <section id="resume" class="container">
             <h2 class="fade-in" data-key="resumeSectionTitle">Resume</h2>
             <div class="resume-controls fade-in">
@@ -242,10 +187,8 @@
             </div>
             <div id="resume-container" class="resume-container fade-in">
                 <div class="resume-viewer">
-                    <!-- FIXED: Corrected path to the resume file -->
                     <iframe src="Klearxos_Xlioumphs_Resume.pdf" title="Klearxos Xlioumphs Resume"></iframe>
                 </div>
-                <!-- FIXED: Corrected path to the resume file -->
                 <a href="Klearxos_Xlioumphs_Resume.pdf" download="KlearxosXlioumphs_Resume.pdf" class="cta-button secondary" data-key="downloadButton">Download PDF</a>
             </div>
         </section>
