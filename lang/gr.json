@@ -1,7 +1,7 @@
 {
   "title": "Κλέαρχος Χλιούμπης - Software Developer",
   "heroTitle": "Κλέαρχος Χλιούμπης",
-  "heroSubtitle": "Ενθουσιώδης Software Developer | Ειδικός σε Android & Kotlin",
+  "heroSubtitle": "Software Developer | Android & Backend Enthusiast",
   "githubButton": "Δείτε το GitHub μου",
   "summaryTitle": "Σύνοψη",
   "summaryText": "Ενθουσιώδης Software Developer, αυτή τη στιγμή στον πρώτο από τα δύο έτη του προγράμματος Backend Development στο <strong>ΙΕΚ ΔΕΛΤΑ 360</strong>. Με ισχυρές βάσεις και πρακτική εμπειρία στην ανάπτυξη με Kotlin και Android, είμαι πρόθυμος να συνεισφέρω σε πραγματικά projects, να εξελιχθώ σε μια συνεργατική ομάδα και να δημιουργήσω επεκτάσιμες, καθαρές λύσεις κώδικα.",
@@ -12,6 +12,7 @@
   "skillsSubIDEs": "IDEs",
   "skillsSubTools": "Εργαλεία Ανάπτυξης",
   "projectsTitle": "Κύρια Projects",
+  "pharmacyTitle": "E-Efimerevon",
   "pharmacySubtitle": "Σύγχρονη Εφαρμογή Android για Εφημερεύοντα Φαρμακεία",
   "pharmacyDescription": "Μια native Android εφαρμογή σχεδιασμένη για να βοηθά τους χρήστες να βρίσκουν άμεσα τα εφημερεύοντα φαρμακεία. Η εφαρμογή είναι χτισμένη με σύγχρονες τεχνολογίες με έμφαση στην καθαρή αρχιτεκτονική και ένα ρευστό, responsive user interface. Λειτουργεί ως ένα πρακτικό εργαλείο για καθημερινή χρήση, αναδεικνύοντας δεξιότητες στην ανάπτυξη mobile εφαρμογών, τον χειρισμό δεδομένων σε πραγματικό χρόνο και τον σχεδιασμό με επίκεντρο τον χρήστη.",
   "pharmacyKeyFeatures": "Κύρια Χαρακτηριστικά & Συνεισφορά:",
@@ -32,7 +33,11 @@
   "contactTitle": "Επικοινωνήστε Μαζί μου",
   "contactText": "Είμαι πάντα ανοιχτός για να συζητήσω νέα projects και ευκαιρίες.",
   "contactButton": "Στείλτε Email",
-  "footerRights": "Με επιφύλαξη παντός δικαιώματος.",
   "viewLiveSite": "Δείτε το Site",
-  "viewOnGithub": "Δείτε στο GitHub"
+  "viewOnGithub": "Δείτε στο GitHub",
+  "navSummary": "Σύνοψη",
+  "navSkills": "Δεξιότητες",
+  "navFeatured": "Projects",
+  "navOther": "Άλλα Projects",
+  "navContact": "Επικοινωνία"
 }
