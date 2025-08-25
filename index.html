@@ -14,7 +14,34 @@
         <div class="loader"></div>
     </div>
 
-    <header class="hero">
+    <!-- Floating Side Navigation (for Desktop) -->
+    <nav id="side-nav">
+        <!-- The nav-pill div has been removed -->
+        <a href="#summary" data-key="navSummary">Summary</a>
+        <a href="#skills" data-key="navSkills">Skills</a>
+        <a href="#featured-projects" data-key="navFeatured">Featured Projects</a>
+        <a href="#other-projects" data-key="navOther">Other Projects</a>
+        <a href="#contact" data-key="navContact">Contact</a>
+    </nav>
+
+    <!-- Hamburger Menu Button (for mobile) -->
+    <button class="hamburger-menu" id="hamburger-btn" aria-label="Open navigation menu">
+        <span></span>
+        <span></span>
+        <span></span>
+    </button>
+
+    <!-- Mobile Navigation Panel -->
+    <nav class="mobile-nav" id="mobile-nav-panel">
+        <a href="#summary" data-key="navSummary">Summary</a>
+        <a href="#skills" data-key="navSkills">Skills</a>
+        <a href="#featured-projects" data-key="navFeatured">Featured Projects</a>
+        <a href="#other-projects" data-key="navOther">Other Projects</a>
+        <a href="#contact" data-key="navContact">Contact</a>
+    </nav>
+
+
+    <header class="hero" id="hero">
         <div class="header-controls">
             <div class="toggle-switch">
                 <input type="checkbox" class="checkbox" id="theme-toggle">
@@ -28,7 +55,7 @@
         <div class="container hero-content">
             <img src="profile.jpg" alt="Klearxos Xlioumphs profile picture" class="profile-pic fade-in">
             <h1 class="fade-in" data-key="heroTitle">Klearxos Xlioumphs</h1>
-            <p class="subtitle fade-in" data-key="heroSubtitle">Motivated Software Developer | Android & Kotlin Specialist</p>
+            <p class="subtitle fade-in" data-key="heroSubtitle">Software Developer | Android & Backend Enthusiast</p>
             <div class="hero-buttons fade-in">
                 <a href="https://github.com/RaeXp917" target="_blank" class="cta-button secondary" data-key="githubButton">View My GitHub</a>
             </div>
@@ -55,17 +82,17 @@
 
             <h3 class="subsection-title fade-in" data-key="skillsSubLanguages">Languages & Frameworks</h3>
             <div class="skills-grid fade-in">
-                <span>Kotlin</span><span>Jetpack Compose</span><span>Java</span><span>Android SDK</span><span>MVVM</span><span>C++</span><span>C#</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span><span>PostgreSQL</span>
+                <span data-skill="kotlin">Kotlin</span><span data-skill="jetpack-compose">Jetpack Compose</span><span data-skill="java">Java</span><span data-skill="javafx">JavaFX</span><span data-skill="android-sdk">Android SDK</span><span data-skill="mvvm">MVVM</span><span data-skill="gradle">Gradle</span><span data-skill="python">Python</span><span data-skill="opencv">OpenCV</span><span data-skill="javacv">JavaCV</span><span data-skill="c-plus-plus">C++</span><span data-skill="c-sharp">C#</span><span data-skill="html">HTML</span><span data-skill="css">CSS</span><span data-skill="javascript">JavaScript</span><span data-skill="php">PHP</span><span data-skill="postgresql">PostgreSQL</span>
             </div>
 
             <h3 class="subsection-title fade-in" data-key="skillsSubIDEs">IDEs</h3>
             <div class="skills-grid fade-in">
-                <span>Android Studio</span><span>Visual Studio Code</span>
+                <span data-skill="android-studio">Android Studio</span><span data-skill="intellij">IntelliJ IDEA</span><span data-skill="rider">Rider</span><span data-skill="visual-studio-code">Visual Studio Code</span>
             </div>
 
             <h3 class="subsection-title fade-in" data-key="skillsSubTools">Developer Tools</h3>
             <div class="skills-grid fade-in">
-                <span>Git</span><span>GitHub</span><span>Firebase</span><span>Firestore</span>
+                <span data-skill="git">Git</span><span data-skill="github">GitHub</span><span data-skill="firebase">Firebase</span><span data-skill="firestore">Firestore</span><span data-skill="docker">Docker</span><span data-skill="dbeaver">DBeaver</span><span data-skill="xampp">XAMPP</span>
             </div>
         </section>
 
@@ -73,8 +100,7 @@
             <h2 class="fade-in" data-key="projectsTitle">Featured Projects</h2>
 
             <!-- Favorite Project 1: ContextNexus -->
-            <div class="favorite-project-item fade-in">
-                <!-- RESTRUCTURED: Media is now on top, like the pharmacy project -->
+            <div class="favorite-project-item fade-in" data-technologies="unreal-engine c-plus-plus c-sharp slate-ui github rider">
                 <div class="project-media-placeholder project-media-centered">
                     <p>Context Nexus Plugin Screenshot</p>
                 </div>
@@ -98,11 +124,12 @@
                 </div>
             </div>
 
-            <!-- Favorite Project 2: On Duty Pharmacy -->
-            <div class="favorite-project-item fade-in">
-                <img src="assets/pharmacy-logo.png" alt="On Duty Pharmacy App Logo" class="project-logo-centered">
+            <!-- Favorite Project 2: E-Efimerevon -->
+            <div class="favorite-project-item fade-in" data-technologies="kotlin jetpack-compose mvvm firebase firestore osm android-sdk android-studio gradle">
+                <img src="assets/pharmacy-logo.png" alt="E-Efimerevon App Logo" class="project-logo-centered">
                 <div class="project-text-centered">
-                    <h3 class="project-subtitle" data-key="pharmacySubtitle">Modern Android App for On-Duty Pharmacies</h3>
+                    <h3 class="project-subtitle" data-key="pharmacyTitle">E-Efimerevon</h3>
+                    <p class="project-description-subtitle" data-key="pharmacySubtitle">Modern Android App for On-Duty Pharmacies</p>
                     <p data-key="pharmacyDescription">A native Android application designed to help users instantly locate on-duty pharmacies...</p>
                     <h4 data-key="pharmacyKeyFeatures">Key Features & Contributions:</h4>
                     <ul class="key-contributions">
