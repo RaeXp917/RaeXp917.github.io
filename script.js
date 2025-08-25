@@ -82,7 +82,21 @@ document.addEventListener('DOMContentLoaded', () => {
             projectGrid.innerHTML = ''; 
             projectsToShow.forEach(repo => {
                 const repoLang = repo.language ? repo.language.toLowerCase().replace(/[\s+#]/g, '-') : '';
-                const projectCardHTML = `<div class="glow-card fade-in" data-technologies="${repoLang} github"><div class="project-card"><h3>${repo.name.replace(/-/g, ' ')}</h3><p>${repo.description || 'No description provided.'}</p><p class="technologies"><strong>Main Language:</strong> ${repo.language || 'N/A'}</p><a href="${repo.html_url}" class="project-link" target="_blank" data-key="viewOnGithub">View on GitHub</a></div></div>`;
+                
+                // --- MODIFIED PART ---
+                // The entire card is now wrapped in an anchor tag. The old text link is removed.
+                const projectCardHTML = `
+                <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="project-card-link">
+                    <div class="glow-card fade-in" data-technologies="${repoLang} github">
+                        <div class="project-card">
+                            <h3>${repo.name.replace(/-/g, ' ')}</h3>
+                            <p>${repo.description || 'No description provided.'}</p>
+                            <p class="technologies"><strong>Main Language:</strong> ${repo.language || 'N/A'}</p>
+                        </div>
+                    </div>
+                </a>`;
+                // --- END OF MODIFICATION ---
+                
                 projectGrid.insertAdjacentHTML('beforeend', projectCardHTML);
             });
             const newCards = projectGrid.querySelectorAll('.fade-in');
@@ -152,4 +166,4 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { rootMargin: '-40% 0px -40% 0px' });
 
     sections.forEach(section => navHighlighter.observe(section));
-});
+})
