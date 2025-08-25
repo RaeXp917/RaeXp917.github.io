@@ -71,26 +71,23 @@ section { transition: background-color 0.4s var(--easing-curve); }
 #skills, #contact, #other-projects { background-color: var(--surface-color); }
 #featured-projects { padding-top: 60px; padding-bottom: 20px; }
 
-/* --- NEW "Favorite Project" Styling --- */
+/* --- "Favorite Project" Styling --- */
 .favorite-project-item { text-align: left; margin-bottom: 80px; }
-.project-details-wrapper { display: flex; gap: 40px; align-items: flex-start; }
-.project-description-block { flex: 2; /* Takes more space */ }
-.project-media-placeholder { flex: 1; min-height: 200px; background-color: var(--surface-color); border: 2px dashed var(--border-color); border-radius: 8px; display: flex; justify-content: center; align-items: center; color: #666; margin-top: 50px; }
 
 .project-logo-centered { display: block; max-width: 300px; margin: 0 auto 40px auto; }
+.project-media-centered { width: 100%; min-height: 200px; background-color: var(--surface-color); border: 2px dashed var(--border-color); border-radius: 8px; display: flex; justify-content: center; align-items: center; color: #666; margin: 0 auto 40px auto; }
+
 .project-text-centered { text-align: left; }
 
-.favorite-project-item .project-subtitle { font-size: 1.7rem; font-weight: 600; color: var(--primary-color); margin-top: 0; margin-bottom: 20px; line-height: 1.3; }
-.favorite-project-item h4 { margin-top: 30px; font-size: 1.2rem; font-weight: 700; color: var(--heading-color); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 25px; }
+.favorite-project-item .project-subtitle { text-align: center; font-size: 1.7rem; font-weight: 600; color: var(--primary-color); margin-top: 0; margin-bottom: 20px; line-height: 1.3; }
+.favorite-project-item h4 { margin-top: 30px; font-size: 1.2rem; font-weight: 700; color: var(--heading-color); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 25px;}
 .favorite-project-item .key-contributions { list-style: none; padding-left: 0; }
 .favorite-project-item .key-contributions li { padding-left: 30px; position: relative; margin-bottom: 18px; }
 .favorite-project-item .key-contributions li::before { content: '✓'; color: var(--primary-color); position: absolute; left: 0; font-weight: 700; font-size: 1.2rem; top: 2px;}
-.tech-tags { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: flex-start; }
+.tech-tags { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
 .tech-tags span { background-color: var(--surface-color); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 0.9rem; font-weight: 600; }
 
-.project-buttons { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: flex-start; }
-.project-text-centered .project-buttons, .project-text-centered .tech-tags { justify-content: center; }
-
+.project-buttons { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
 
 /* --- Project Grid for "Other Projects" --- */
 .project-grid { display: grid; grid-template-columns: 1fr; gap: 40px; text-align: left; }
@@ -107,7 +104,6 @@ section { transition: background-color 0.4s var(--easing-curve); }
 .subsection-title { font-size: 1.5rem; color: var(--heading-color); margin-top: 60px; margin-bottom: 30px; }
 .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
 .skills-grid span { background-color: var(--bg-color); padding: 10px 20px; border-radius: 20px; border: 1px solid var(--border-color); font-weight: 600; cursor: pointer; transition: all 0.3s var(--easing-curve); }
-/* RESTORED SKILL HOVER EFFECT */
 .skills-grid span:hover { transform: translateY(-3px); color: var(--primary-color); box-shadow: 0 0 15px 2px rgba(155, 89, 182, 0.4); }
 
 /* --- Contact & Buttons --- */
@@ -133,14 +129,9 @@ body.light-theme .social-links a[title="GitHub"]:hover svg { fill: #000; }
 
 /* --- Responsive Design --- */
 @media (max-width: 768px) {
-    .project-details-wrapper { flex-direction: column-reverse; /* Puts placeholder on top */ text-align: center; }
-    .project-media-placeholder { width: 100%; margin-top: 0; margin-bottom: 30px; }
-    .project-description-block, .project-text-centered { text-align: left; }
-    .favorite-project-item .key-contributions li { text-align: left; }
     .hero h1 { font-size: 2.5rem; }
     .profile-pic { width: 180px; height: 180px; }
     .project-logo-centered { max-width: 200px; }
-    .project-buttons, .tech-tags { justify-content: center; }
 }
 
 @media (min-width: 768px) {
