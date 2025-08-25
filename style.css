@@ -37,7 +37,7 @@ body {
 }
 
 .container {
-    max-width: 900px;
+    max-width: 960px;
     margin: 0 auto;
     padding: 60px 20px;
 }
@@ -61,7 +61,7 @@ body {
 .checkbox { display: none; }
 .switch-label { display: block; overflow: hidden; cursor: pointer; border-radius: 20px; margin: 0; }
 .slider { display: block; width: 200%; margin-left: -100%; transition: margin 0.3s ease-in 0s; }
-.slider:before, .slider:after { display: block; float: left; width: 50%; height: 34px; padding: 0; line-height: 34px; box-sizing: border-box; }
+.slider:before, .slider:after { display: block; float: left; width: 50%; height: 34px; box-sizing: border-box; }
 .slider:before { content: ""; background-color: #28292C; }
 .slider:after { content: ""; background-color: #F8F8F8; }
 .checkbox:checked + .switch-label .slider { margin-left: 0; }
@@ -75,18 +75,31 @@ body {
 /* --- General Section Styling --- */
 h2 { font-size: 2.5rem; margin-bottom: 40px; color: var(--heading-color); }
 section { transition: background-color 0.4s var(--easing-curve); }
-#skills, #contact { background-color: var(--surface-color); }
+#summary, #skills, #contact { background-color: var(--surface-color); }
 
-/* --- Glowing Card System (for Projects) --- */
+/* --- Featured Project Section --- */
+#featured-project { background-color: var(--bg-color); }
+.featured-grid { display: grid; grid-template-columns: 1fr; gap: 40px; text-align: left; align-items: center; }
+.featured-image img { width: 100%; border-radius: 10px; border: 1px solid var(--border-color); }
+.featured-text h3 { color: var(--primary-color); font-size: 1.8rem; margin-top: 0; }
+.featured-text h4 { font-size: 1.2rem; margin-top: 30px; margin-bottom: 10px; color: var(--heading-color); }
+.featured-text ul { list-style: none; padding-left: 0; }
+.featured-text ul li { position: relative; padding-left: 25px; margin-bottom: 10px; }
+.featured-text ul li::before { content: '✓'; color: var(--primary-color); position: absolute; left: 0; font-weight: bold; }
+.tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 30px 0; }
+.tech-tags span { background-color: var(--surface-color); padding: 5px 15px; border-radius: 15px; font-size: 0.9rem; font-weight: 600; }
+
+/* --- Glowing Card System (for Other Projects) --- */
 .glow-card { background-image: linear-gradient(163deg, var(--glow-start) 0%, var(--glow-end) 100%); border-radius: 22px; transition: all .3s var(--easing-curve); height: 100%; }
 .glow-card:hover { box-shadow: 0px 0px 30px 1px rgba(155, 89, 182, 0.4); transform: scale(1.03); }
 .glow-card:hover > .project-card { transform: scale(0.98); }
 
-/* --- Project Cards --- */
+/* --- Other Project Cards --- */
 .project-grid { display: grid; grid-template-columns: 1fr; gap: 40px; text-align: left; }
 .project-card { background-color: var(--bg-color); padding: 30px; border-radius: 20px; transition: all .2s var(--easing-curve); height: 100%; box-sizing: border-box; display: flex; flex-direction: column; }
 .project-card h3 { margin-top: 0; color: var(--primary-color); }
-.project-card .technologies { margin-top: 15px; font-size: 0.9rem; opacity: 0.9; margin-bottom: 20px; }
+.project-card p { margin-bottom: 15px; }
+.project-card .technologies { font-size: 0.9rem; opacity: 0.9; margin-bottom: 20px; }
 .project-card .project-link { margin-top: auto; color: var(--primary-color); text-decoration: none; font-weight: 600; }
 .project-card .project-link:hover { text-decoration: underline; }
 
@@ -118,5 +131,6 @@ body.light-theme .social-links a[title="GitHub"]:hover svg { fill: #000; }
 
 /* --- Responsive Design --- */
 @media (min-width: 768px) {
+    .featured-grid { grid-template-columns: 1fr 1.2fr; }
     .project-grid { grid-template-columns: 1fr 1fr; }
 }
