@@ -1,9 +1,10 @@
 <!DOCTYPE html>
-<html lang="en">
+<!-- lang="en" will be set by JS -->
+<html>
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klearxos Xlioumphs - Software Developer</title>
+    <title data-key="title">Klearxos Xlioumphs - Software Developer</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 </head>
@@ -26,105 +27,96 @@
         </div>
         <div class="container hero-content">
             <img src="profile.jpg" alt="Klearxos Xlioumphs profile picture" class="profile-pic fade-in">
-            <h1 class="fade-in">Klearxos Xlioumphs</h1>
-            <p class="subtitle fade-in">Kotlin & Android Developer | Mobile App Specialist</p>
+            <h1 class="fade-in" data-key="heroTitle">Klearxos Xlioumphs</h1>
+            <p class="subtitle fade-in" data-key="heroSubtitle">Motivated Software Developer | Android & Kotlin Specialist</p>
             <div class="hero-buttons fade-in">
-                <a href="https://github.com/RaeXp917" target="_blank" class="cta-button secondary">View My GitHub</a>
+                <a href="https://github.com/RaeXp917" target="_blank" class="cta-button secondary" data-key="githubButton">View My GitHub</a>
             </div>
         </div>
     </header>
 
     <main>
         <section id="summary" class="container">
-            <h2 class="fade-in">About Me</h2>
-            <p class="fade-in">
-                Passionate Kotlin developer specializing in native Android and mobile application development. With hands-on experience in C++ and Unreal Engine, I enjoy tackling a diverse range of technical challenges. Eager to contribute to real-world projects, grow within a collaborative team, and build scalable, clean coding solutions.
+            <h2 class="fade-in" data-key="summaryTitle">Summary</h2>
+            <p class="fade-in" data-key="summaryText">
+                Motivated Software Developer, currently in my first year of a two-year Backend Development program at <strong>IEK DELTA 360</strong>...
             </p>
         </section>
 
-        <section id="featured-project">
-            <div class="container">
-                <h2 class="fade-in">Featured Project: Context Nexus</h2>
-                <div class="featured-grid fade-in">
-                    <div class="featured-image">
-                        <img src="https://raw.githubusercontent.com/nikosleft/ContextNexus/main/Screenshot.png" alt="Context Nexus Plugin Screenshot">
-                    </div>
-                    <div class="featured-text">
-                        <h3>AI Co-Pilot for Unreal Engine 5</h3>
-                        <p>Context Nexus is a professional, in-editor C++ plugin that acts as an expert pair programmer for Unreal developers. It solves the critical problem of context repetition by performing a deep analysis of a project's C++ and Blueprint source code, allowing developers to ask complex questions to an AI that has a perfect, minimal, and relevant understanding of their work.</p>
-                        <h4>Key Contributions & Responsibilities:</h4>
-                        <ul>
-                            <li>Developed and enhanced the core C++ analysis engine, enabling the tool to parse and understand a project's entire C++ source code.</li>
-                            <li>Architected and implemented key UI components using the Slate UI framework, including the "Project Explorer" and the integrated AI chat panel.</li>
-                            <li>Resolved critical C++ compilation, linker errors, and memory corruption bugs to ensure plugin stability and reliability.</li>
-                            <li>Integrated the plugin directly into the Unreal Editor's Content Browser, creating a seamless workflow for developers.</li>
-                            <li>Enhanced the AI's understanding by implementing semantic analysis of Blueprint graphs and a custom Domain-Specific Language (DSL).</li>
-                        </ul>
-                        <div class="tech-tags">
-                            <span>Unreal Engine</span>
-                            <span>C++</span>
-                            <span>C#</span>
-                            <span>Slate UI</span>
-                            <span>GitHub</span>
-                        </div>
-                        <div class="project-buttons">
-                            <a href="https://www.contextnexus.dev/" target="_blank" class="cta-button">View Live Site</a>
-                            <a href="https://github.com/nikosleft/ContextNexus" target="_blank" class="cta-button secondary">View on GitHub</a>
-                        </div>
-                    </div>
-                </div>
+        <section id="motivation" class="container">
+            <h2 class="fade-in" data-key="motivationTitle">My Motivation</h2>
+            <p class="fade-in" data-key="motivationText">
+                I chose programming out of a deep passion for problem-solving and creation...
+            </p>
+        </section>
+        
+        <section id="skills" class="container">
+            <h2 class="fade-in" data-key="skillsTitle">Skills</h2>
+            <div class="skills-grid fade-in">
+                <span>Kotlin</span><span>Jetpack Compose</span><span>Java</span><span>Android SDK</span><span>MVVM</span><span>Firebase</span><span>Firestore</span><span>C++</span><span>C#</span><span>HTML</span><span>CSS</span><span>JavaScript</span><span>PHP</span><span>PostgreSQL</span>
             </div>
         </section>
 
-        <section id="skills" class="container">
-            <h2 class="fade-in">Technologies & Tools</h2>
-            <div class="skills-container fade-in">
-                <h4>Programming Languages</h4>
-                <div class="skills-grid languages">
-                    <a href="#project-e-efimerevon" class="skill-tag" data-target-id="project-e-efimerevon">Kotlin</a>
-                    <span class="skill-tag">C++</span>
-                    <span class="skill-tag">C#</span>
-                    <span class="skill-tag">Java</span>
-                    <span class="skill-tag">Python</span>
-                    <span class="skill-tag">HTML</span>
-                    <span class="skill-tag">CSS</span>
-                    <span class="skill-tag">JavaScript</span>
-                    <span class="skill-tag">Firebase</span>
-                    <span class="skill-tag">Firestore</span>
-                    <span class="skill-tag">PostgreSQL</span>
+        <!-- THIS SECTION HAS BEEN REBUILT -->
+        <section id="featured-projects" class="container">
+            <h2 class="fade-in" data-key="projectsTitle">Featured Projects</h2>
+
+            <!-- Favorite Project 1: Context Nexus -->
+            <div class="favorite-project-item fade-in">
+                <h3 class="project-subtitle" data-key="nexusSubtitle">AI Co-Pilot for Unreal Engine 5</h3>
+                <p data-key="nexusDescription">Context Nexus is a professional, in-editor C++ plugin...</p>
+                <h4 data-key="nexusKeyFeatures">Key Contributions & Responsibilities:</h4>
+                <ul class="key-contributions">
+                    <li data-key="nexusFeatureFull1">Developed and enhanced the core C++ analysis engine...</li>
+                    <li data-key="nexusFeatureFull2">Architected and implemented key UI components using the Slate UI framework...</li>
+                    <li data-key="nexusFeatureFull3">Resolved critical C++ compilation, linker errors, and memory corruption bugs...</li>
+                    <li data-key="nexusFeatureFull4">Integrated the plugin directly into the Unreal Editor's Content Browser...</li>
+                    <li data-key="nexusFeatureFull5">Enhanced the AI's understanding by implementing semantic analysis...</li>
+                </ul>
+                <div class="tech-tags">
+                    <span>Unreal Engine</span><span>C++</span><span>C#</span><span>Slate UI</span><span>GitHub</span>
                 </div>
-                <h4>IDEs & Editors</h4>
-                <div class="skills-grid">
-                    <span>Android Studio</span>
-                    <span>IntelliJ IDEA</span>
-                    <span>Rider</span>
-                    <span>VS Code</span>
-                    <span>Code::Blocks</span>
-                </div>
-                <h4>Tools & Platforms</h4>
-                <div class="skills-grid">
-                    <span>Git</span>
-                    <span>GitHub</span>
-                    <span>Docker</span>
-                    <span>DBeaver</span>
-                    <span>XAMPP</span>
+                <div class="project-buttons">
+                    <a href="https://www.contextnexus.dev/" target="_blank" class="cta-button" data-key="viewLiveSite">View Live Site</a>
                 </div>
             </div>
+
+            <!-- Favorite Project 2: On Duty Pharmacy -->
+            <div class="favorite-project-item fade-in">
+                <div class="project-content-wrapper">
+                    <img src="assets/pharmacy-logo.png" alt="On Duty Pharmacy App Logo" class="project-logo">
+                    <div class="project-text">
+                        <h3 class="project-subtitle" data-key="pharmacySubtitle">Modern Android App for On-Duty Pharmacies</h3>
+                        <p data-key="pharmacyDescription">A native Android application designed to help users instantly locate on-duty pharmacies...</p>
+                        <h4 data-key="pharmacyKeyFeatures">Key Features & Contributions:</h4>
+                        <ul class="key-contributions">
+                            <li data-key="pharmacyFeature1">Developed a fluid and intuitive UI from scratch...</li>
+                            <li data-key="pharmacyFeature2">Implemented a clean MVVM architecture...</li>
+                            <li data-key="pharmacyFeature3">Integrated Firebase & Firestore for real-time data...</li>
+                            <li data-key="pharmacyFeature4">Added full multilingual support...</li>
+                            <li data-key="pharmacyFeature5">Engineered a dynamic theme system...</li>
+                        </ul>
+                        <div class="tech-tags">
+                            <span>Kotlin</span><span>Jetpack Compose</span><span>MVVM</span><span>Firebase</span><span>Firestore</span><span>OSM</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </section>
 
         <section id="other-projects" class="container">
-            <h2 class="fade-in">My Other Projects</h2>
-            <div id="project-grid" class="project-grid">
+             <h2 class="fade-in" data-key="otherProjectsTitle">Other Projects</h2>
+             <div id="github-project-grid" class="project-grid">
                 <!-- GitHub projects will be dynamically inserted here by script.js -->
-            </div>
+             </div>
         </section>
 
         <section id="contact" class="container">
-            <h2 class="fade-in">Get In Touch</h2>
-            <p class="fade-in">I'm always open to discussing new projects and opportunities.</p>
+            <h2 class="fade-in" data-key="contactTitle">Get In Touch</h2>
+            <p class="fade-in" data-key="contactText">I'm always open to discussing new projects and opportunities.</p>
             <div class="contact-links fade-in">
-                <a href="mailto:klearxos.xlioumphs@gmail.com" class="cta-button">Email Me</a>
-                <a href="Klearxos_Xlioumphs_Resume.pdf" target="_blank" class="cta-button secondary">Download Resume</a>
+                <a href="mailto:klearxos.xlioumphs@gmail.com" class="cta-button" data-key="contactButton">Email Me</a>
             </div>
         </section>
     </main>
@@ -135,9 +127,14 @@
                  <a href="https://github.com/RaeXp917" target="_blank" title="GitHub"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
                 <a href="https://www.linkedin.com/in/klearxos-xlioumphs/" target="_blank" title="LinkedIn"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
             </div>
-            <p>&copy; 2025 Klearxos Xlioumphs. All rights reserved.</p>
+            <p>&copy; 2025 Klearxos Xlioumphs. <span data-key="footerRights">All rights reserved.</span></p>
         </div>
     </footer>
+    
+    <div class="lang-switch-floating">
+        <button id="lang-en-btn" title="Switch to English"><img src="assets/flag-en.png" alt="English Flag"></button>
+        <button id="lang-gr-btn" title="Switch to Greek"><img src="assets-gr.png" alt="Greek Flag"></button>
+    </div>
 
     <script src="script.js" defer></script>
 </body>
