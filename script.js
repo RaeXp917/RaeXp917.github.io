@@ -83,8 +83,6 @@ document.addEventListener('DOMContentLoaded', () => {
             projectsToShow.forEach(repo => {
                 const repoLang = repo.language ? repo.language.toLowerCase().replace(/[\s+#]/g, '-') : '';
                 
-                // --- MODIFIED PART ---
-                // The entire card is now wrapped in an anchor tag. The old text link is removed.
                 const projectCardHTML = `
                 <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="project-card-link">
                     <div class="glow-card fade-in" data-technologies="${repoLang} github">
@@ -95,7 +93,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         </div>
                     </div>
                 </a>`;
-                // --- END OF MODIFICATION ---
                 
                 projectGrid.insertAdjacentHTML('beforeend', projectCardHTML);
             });
@@ -144,9 +141,8 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // --- UPDATED Feature 8: Active Nav Link Highlighting (for ALL menus) ---
+    // --- Feature 8: Active Nav Link Highlighting ---
     const sections = document.querySelectorAll('main section[id]');
-    // Selects links from both the mobile nav and the new side nav
     const allNavLinks = document.querySelectorAll('.mobile-nav a, #side-nav a');
 
     const navHighlighter = new IntersectionObserver((entries) => {
@@ -154,7 +150,6 @@ document.addEventListener('DOMContentLoaded', () => {
             if (entry.isIntersecting) {
                 const sectionId = entry.target.id;
                 
-                // Simply toggle the .nav-active class
                 allNavLinks.forEach(link => {
                     link.classList.remove('nav-active');
                     if (link.getAttribute('href') === `#${sectionId}`) {
@@ -166,4 +161,29 @@ document.addEventListener('DOMContentLoaded', () => {
     }, { rootMargin: '-40% 0px -40% 0px' });
 
     sections.forEach(section => navHighlighter.observe(section));
-})
+
+    // --- Dropdown Resume Logic ---
+    const toggleResumeBtn = document.getElementById('toggle-resume-btn');
+    const resumeContainer = document.getElementById('resume-container');
+
+    if (toggleResumeBtn && resumeContainer) {
+        toggleResumeBtn.addEventListener('click', () => {
+            const isOpen = resumeContainer.classList.toggle('open');
+            
+            // This logic will be handled by the language switcher, but we can set a default
+            const currentLang = localStorage.getItem('language') || 'en';
+            if (currentLang === 'gr') {
+                 toggleResumeBtn.textContent = isOpen ? 'Απόκρυψη Βιογραφικού' : 'Προβολή Βιογραφικού';
+            } else {
+                 toggleResumeBtn.textContent = isOpen ? 'Hide Resume' : 'View My Resume';
+            }
+            
+            // If opening, scroll it into view
+            if (isOpen) {
+                setTimeout(() => {
+                     resumeContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                }, 300); // Wait a moment for the animation to start
+            }
+        });
+    }
+});
