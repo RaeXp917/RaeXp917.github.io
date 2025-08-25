@@ -88,11 +88,14 @@ section { transition: background-color 0.4s var(--easing-curve); }
 .featured-text ul li::before { content: '✓'; color: var(--primary-color); position: absolute; left: 0; font-weight: bold; }
 .tech-tags { display: flex; flex-wrap: wrap; gap: 10px; margin: 30px 0; }
 .tech-tags span { background-color: var(--surface-color); padding: 5px 15px; border-radius: 15px; font-size: 0.9rem; font-weight: 600; }
+.project-buttons { display: flex; gap: 15px; }
 
 /* --- Glowing Card System (for Other Projects) --- */
 .glow-card { background-image: linear-gradient(163deg, var(--glow-start) 0%, var(--glow-end) 100%); border-radius: 22px; transition: all .3s var(--easing-curve); height: 100%; }
 .glow-card:hover { box-shadow: 0px 0px 30px 1px rgba(155, 89, 182, 0.4); transform: scale(1.03); }
 .glow-card:hover > .project-card { transform: scale(0.98); }
+.glow-card.highlight { animation: highlight-pulse 1.2s ease-in-out; }
+@keyframes highlight-pulse { 0% { box-shadow: 0 0 0 0 rgba(192, 132, 252, 0.7); } 70% { box-shadow: 0 0 0 20px rgba(192, 132, 252, 0); } 100% { box-shadow: 0 0 0 0 rgba(192, 132, 252, 0); } }
 
 /* --- Other Project Cards --- */
 .project-grid { display: grid; grid-template-columns: 1fr; gap: 40px; text-align: left; }
@@ -103,10 +106,12 @@ section { transition: background-color 0.4s var(--easing-curve); }
 .project-card .project-link { margin-top: auto; color: var(--primary-color); text-decoration: none; font-weight: 600; }
 .project-card .project-link:hover { text-decoration: underline; }
 
-/* --- Skills --- */
+/* --- Skills Restructured --- */
+.skills-container h4 { font-size: 1.2rem; color: var(--heading-color); margin-top: 40px; margin-bottom: 20px; text-align: center; }
+.skills-container h4:first-child { margin-top: 0; }
 .skills-grid { display: flex; flex-wrap: wrap; justify-content: center; gap: 15px; }
-.skills-grid span { background-color: var(--bg-color); padding: 10px 20px; border-radius: 20px; border: 1px solid var(--border-color); font-weight: 600; cursor: pointer; transition: all 0.3s var(--easing-curve); }
-.skills-grid span:hover { transform: translateY(-3px); color: var(--primary-color); box-shadow: 0 0 15px 2px rgba(155, 89, 182, 0.4); }
+.skills-grid span, .skills-grid a { background-color: var(--bg-color); color: var(--text-color); text-decoration: none; padding: 10px 20px; border-radius: 20px; border: 1px solid var(--border-color); font-weight: 600; cursor: pointer; transition: all 0.3s var(--easing-curve); }
+.skills-grid span:hover, .skills-grid a:hover { transform: translateY(-3px); color: var(--primary-color); box-shadow: 0 0 15px 2px rgba(155, 89, 182, 0.4); }
 
 /* --- Contact & Buttons --- */
 .contact-links { display: flex; justify-content: center; gap: 20px; flex-wrap: wrap; }
