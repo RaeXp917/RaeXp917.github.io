@@ -54,7 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
         document.documentElement.lang = lang; 
         localStorage.setItem('language', lang); 
 
-        // Update active button state
         langEnBtn.classList.toggle('active', lang === 'en');
         langGrBtn.classList.toggle('active', lang === 'gr');
     };
@@ -74,47 +73,83 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchGitHubProjects() {
         if (!projectGrid) return;
-
         try {
             const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=pushed&per_page=10`);
             if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
             const repos = await response.json();
-            
-            // BUG FIX: Simplified filter to ensure other projects appear
-            const filteredRepos = repos.filter(repo => 
-                !repo.fork &&
-                repo.name !== `${GITHUB_USERNAME}.github.io` &&
-                repo.name !== GITHUB_USERNAME &&
-                repo.name !== 'On-Duty-Pharmacies-App' 
-            );
-            
-            // Limit to the latest projects
+            const filteredRepos = repos.filter(repo => !repo.fork && repo.name !== `${GITHUB_USERNAME}.github.io` && repo.name !== GITHUB_USERNAME && repo.name !== 'On-Duty-Pharmacies-App' && repo.name !== 'Context-Nexus-Website');
             const projectsToShow = filteredRepos.slice(0, 4);
-
-            projectGrid.innerHTML = ''; // Clear previous content
-
+            projectGrid.innerHTML = ''; 
             projectsToShow.forEach(repo => {
-                const projectCardHTML = `
-                    <div class="glow-card fade-in">
-                        <div class="project-card">
-                            <h3>${repo.name.replace(/-/g, ' ')}</h3>
-                            <p>${repo.description || 'No description provided.'}</p>
-                            <p class="technologies"><strong>Main Language:</strong> ${repo.language || 'N/A'}</p>
-                            <a href="${repo.html_url}" class="project-link" target="_blank" data-key="viewOnGithub">View on GitHub</a>
-                        </div>
-                    </div>`;
+                const repoLang = repo.language ? repo.language.toLowerCase().replace(/[\s+#]/g, '-') : '';
+                const projectCardHTML = `<div class="glow-card fade-in" data-technologies="${repoLang} github"><div class="project-card"><h3>${repo.name.replace(/-/g, ' ')}</h3><p>${repo.description || 'No description provided.'}</p><p class="technologies"><strong>Main Language:</strong> ${repo.language || 'N/A'}</p><a href="${repo.html_url}" class="project-link" target="_blank" data-key="viewOnGithub">View on GitHub</a></div></div>`;
                 projectGrid.insertAdjacentHTML('beforeend', projectCardHTML);
             });
-
-            // Re-observe new elements for fade-in effect
             const newCards = projectGrid.querySelectorAll('.fade-in');
             newCards.forEach(card => observer.observe(card));
-
+            initializeSkillLinking();
         } catch (error) {
             console.error("Failed to fetch GitHub projects:", error);
             projectGrid.innerHTML += `<p>Could not load projects from GitHub.</p>`;
         }
     }
-
     fetchGitHubProjects();
+
+    // --- Feature 6: Skill Tag to Project Scrolling ---
+    function initializeSkillLinking() {
+        document.querySelectorAll('[data-skill]').forEach(tag => tag.replaceWith(tag.cloneNode(true)));
+        document.querySelectorAll('[data-skill]').forEach(tag => {
+            tag.addEventListener('click', () => {
+                const skill = tag.dataset.skill;
+                const projectToScrollTo = document.querySelector(`[data-technologies*="${skill}"]`);
+                if (projectToScrollTo) {
+                    projectToScrollTo.scrollIntoView({ behavior: 'smooth', block: 'center' });
+                    projectToScrollTo.classList.add('highlight');
+                    setTimeout(() => projectToScrollTo.classList.remove('highlight'), 2000);
+                } else {
+                    console.warn(`No project found for skill: ${skill}`);
+                }
+            });
+        });
+    }
+    initializeSkillLinking();
+
+    // --- Feature 7: Mobile Hamburger Menu ---
+    const hamburgerBtn = document.getElementById('hamburger-btn');
+    const mobileNavPanel = document.getElementById('mobile-nav-panel');
+    if (hamburgerBtn && mobileNavPanel) {
+        hamburgerBtn.addEventListener('click', () => {
+            hamburgerBtn.classList.toggle('active');
+            mobileNavPanel.classList.toggle('open');
+        });
+        mobileNavPanel.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburgerBtn.classList.remove('active');
+                mobileNavPanel.classList.remove('open');
+            });
+        });
+    }
+
+    // --- UPDATED Feature 8: Active Nav Link Highlighting (for ALL menus) ---
+    const sections = document.querySelectorAll('main section[id]');
+    // Selects links from both the mobile nav and the new side nav
+    const allNavLinks = document.querySelectorAll('.mobile-nav a, #side-nav a');
+
+    const navHighlighter = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const sectionId = entry.target.id;
+                
+                // Simply toggle the .nav-active class
+                allNavLinks.forEach(link => {
+                    link.classList.remove('nav-active');
+                    if (link.getAttribute('href') === `#${sectionId}`) {
+                        link.classList.add('nav-active');
+                    }
+                });
+            }
+        });
+    }, { rootMargin: '-40% 0px -40% 0px' });
+
+    sections.forEach(section => navHighlighter.observe(section));
 });
