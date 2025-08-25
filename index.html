@@ -3,7 +3,7 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title data-key="title">Klearxos Xlioumphs - Software Developer</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
@@ -20,6 +20,7 @@
         <a href="#skills" data-key="navSkills">Skills</a>
         <a href="#featured-projects" data-key="navFeatured">Featured Projects</a>
         <a href="#other-projects" data-key="navOther">Other Projects</a>
+        <a href="#resume" data-key="navResume">Resume</a>
         <a href="#contact" data-key="navContact">Contact</a>
     </nav>
 
@@ -36,6 +37,7 @@
         <a href="#skills" data-key="navSkills">Skills</a>
         <a href="#featured-projects" data-key="navFeatured">Featured Projects</a>
         <a href="#other-projects" data-key="navOther">Other Projects</a>
+        <a href="#resume" data-key="navResume">Resume</a>
         <a href="#contact" data-key="navContact">Contact</a>
     </nav>
 
@@ -115,7 +117,7 @@
                         <span>Unreal Engine</span><span>C++</span><span>C#</span><span>Slate UI</span><span>GitHub</span>
                     </div>
 
-                    <!-- START: ContextNexus Animated Illustration -->
+                    <!-- ContextNexus Animated Illustration -->
                     <div class="project-illustration-container">
                         <div class="contextnexus-illustration">
                             <!-- C++ Code Block -->
@@ -153,8 +155,7 @@
                             <div class="editor-block"></div>
                         </div>
                     </div>
-                    <!-- END: ContextNexus Animated Illustration -->
-
+                    
                     <div class="project-buttons">
                          <a href="https://www.contextnexus.dev/" target="_blank" class="cta-button" data-key="viewLiveSite">View Live Site</a>
                     </div>
@@ -166,7 +167,7 @@
                 <div class="project-text-centered">
                     <h3 class="project-subtitle" data-key="pharmacyTitle">E-Efimerevon</h3>
                     <p class="project-description-subtitle" data-key="pharmacySubtitle">Modern Android App for On-Duty Pharmacies</p>
-                    <p data-key="pharmacyDescription">A native Android application designed to help users instantly locate on-duty pharmacies...</p>
+                    <p data-key="pharmacyDescription">A native Android application designed to help users in Greece instantly locate on-duty pharmacies...</p>
                     <h4 data-key="pharmacyKeyFeatures">Key Features & Contributions:</h4>
                     <ul class="key-contributions">
                         <li data-key="pharmacyFeature1">Developed a fluid and intuitive UI from scratch...</li>
@@ -179,9 +180,9 @@
                         <span>Kotlin</span><span>Jetpack Compose</span><span>MVVM</span><span>Firebase</span><span>Firestore</span><span>OSM</span>
                     </div>
 
-                    <!-- START: E-Efimerevon Static Illustration -->
+                    <!-- E-Efimerevon Static Illustration -->
                     <div class="project-illustration-container static-illustration">
-                         <div class="contextnexus-illustration"> <!-- Re-using the main wrapper -->
+                         <div class="contextnexus-illustration"> 
                             <!-- Kotlin Code Block -->
                             <div class="code code-kotlin">
                                 <header>
@@ -215,8 +216,7 @@
                             <div class="editor-block"></div>
                         </div>
                     </div>
-                    <!-- END: E-Efimerevon Static Illustration -->
-
+                    
                     <div class="project-buttons">
                         <a href="https://github.com/RaeXp917/On-Duty-Pharmacies-App" target="_blank" class="cta-button" data-key="viewOnGithub">View on GitHub</a>
                     </div>
@@ -230,6 +230,21 @@
              <div id="github-project-grid" class="project-grid">
                 <!-- GitHub projects will be dynamically inserted here by script.js -->
              </div>
+        </section>
+
+        <!-- RESUME SECTION -->
+        <section id="resume" class="container">
+            <h2 class="fade-in" data-key="resumeSectionTitle">Resume</h2>
+            <div class="resume-controls fade-in">
+                <button id="toggle-resume-btn" class="cta-button" data-key="viewResumeBtn">View My Resume</button>
+            </div>
+            <div id="resume-container" class="resume-container fade-in">
+                <div class="resume-viewer">
+                    <!-- IMPORTANT: Make sure you have a resume.pdf file in your project folder -->
+                    <iframe src="resume.pdf" title="Klearxos Xlioumphs Resume"></iframe>
+                </div>
+                <a href="resume.pdf" download="KlearxosXlioumphs_Resume.pdf" class="cta-button secondary" data-key="downloadButton">Download PDF</a>
+            </div>
         </section>
 
         <section id="contact" class="container">
