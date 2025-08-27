@@ -36,20 +36,70 @@ document.addEventListener('DOMContentLoaded', () => {
         if (preloader) preloader.classList.add('hidden');
     });
 
+    // --- NEW FEATURE: Typewriter Effect Logic ---
+    let typewriterWords = [];
+    let typewriterTimeout;
+
+    function startTypewriter() {
+        clearTimeout(typewriterTimeout); // Stop any previous instance
+        const typewriterElement = document.querySelector('.typewriter');
+        if (!typewriterElement || typewriterWords.length === 0) return;
+
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+
+        const type = () => {
+            const currentWord = typewriterWords[wordIndex];
+            let typeSpeed = 150;
+
+            if (isDeleting) {
+                typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
+                charIndex--;
+                typeSpeed = 75;
+            } else {
+                typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
+                charIndex++;
+            }
+
+            if (!isDeleting && charIndex === currentWord.length) {
+                typeSpeed = 2000;
+                isDeleting = true;
+            } else if (isDeleting && charIndex === 0) {
+                isDeleting = false;
+                wordIndex = (wordIndex + 1) % typewriterWords.length;
+                typeSpeed = 500;
+            }
+
+            typewriterTimeout = setTimeout(type, typeSpeed);
+        };
+        
+        type();
+    }
+
     // --- Feature 4: Language Switcher ---
     const langEnBtn = document.getElementById('lang-en-btn');
     const langGrBtn = document.getElementById('lang-gr-btn');
+    let currentTranslations = {}; // To store the latest translations
     
     const setLanguage = async (lang) => {
-        const response = await fetch(`lang/${lang}.json`);
-        const translations = await response.json();
+        const response = await fetch(`${lang}.json`);
+        currentTranslations = await response.json();
         
         document.querySelectorAll('[data-key]').forEach(elem => {
             const key = elem.getAttribute('data-key');
-            if (translations[key]) {
-                elem.innerHTML = translations[key];
+            if (currentTranslations[key]) {
+                elem.innerHTML = currentTranslations[key];
             }
         });
+
+        // Populate typewriter words from translations and restart the effect
+        typewriterWords = [
+            currentTranslations.typewriterPhrase1,
+            currentTranslations.typewriterPhrase2,
+            currentTranslations.typewriterPhrase3,
+        ].filter(p => p); // Filter out any undefined phrases
+        startTypewriter();
 
         document.documentElement.lang = lang; 
         localStorage.setItem('language', lang); 
@@ -133,13 +183,31 @@ document.addEventListener('DOMContentLoaded', () => {
             hamburgerBtn.classList.toggle('active');
             mobileNavPanel.classList.toggle('open');
         });
-        mobileNavPanel.querySelectorAll('a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburgerBtn.classList.remove('active');
-                mobileNavPanel.classList.remove('open');
-            });
-        });
     }
+    
+    // --- NEW FEATURE: Smooth Scrolling for Navigation ---
+    const navLinksForScrolling = document.querySelectorAll('#side-nav a, .mobile-nav a');
+    navLinksForScrolling.forEach(link => {
+        link.addEventListener('click', function(e) {
+            e.preventDefault();
+            const targetId = this.getAttribute('href');
+            const targetElement = document.querySelector(targetId);
+
+            if (targetElement) {
+                targetElement.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+            
+            // Close mobile menu on click
+            if (mobileNavPanel.classList.contains('open')) {
+                 hamburgerBtn.classList.remove('active');
+                 mobileNavPanel.classList.remove('open');
+            }
+        });
+    });
+
 
     // --- Feature 8: Active Nav Link Highlighting ---
     const sections = document.querySelectorAll('main section[id]');
@@ -170,13 +238,10 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleResumeBtn.addEventListener('click', () => {
             const isOpen = resumeContainer.classList.toggle('open');
             
-            // This logic will be handled by the language switcher, but we can set a default
-            const currentLang = localStorage.getItem('language') || 'en';
-            if (currentLang === 'gr') {
-                 toggleResumeBtn.textContent = isOpen ? 'Απόκρυψη Βιογραφικού' : 'Προβολή Βιογραφικού';
-            } else {
-                 toggleResumeBtn.textContent = isOpen ? 'Hide Resume' : 'View My Resume';
-            }
+            // Use the globally stored translations to update the button text
+            toggleResumeBtn.innerHTML = isOpen 
+                ? currentTranslations.hideResumeBtn 
+                : currentTranslations.viewResumeBtn;
             
             // If opening, scroll it into view
             if (isOpen) {
