@@ -83,7 +83,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentTranslations = {}; // To store the latest translations
     
     const setLanguage = async (lang) => {
-        const response = await fetch(`${lang}.json`);
+        // --- THIS IS THE UPDATED LINE ---
+        const response = await fetch(`${lang}.json?v=${new Date().getTime()}`);
         currentTranslations = await response.json();
         
         document.querySelectorAll('[data-key]').forEach(elem => {
