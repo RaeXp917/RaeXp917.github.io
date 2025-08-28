@@ -81,10 +81,8 @@ body.light-theme .hero-glass-panel {
 .hero .subtitle { font-size: 1.2rem; opacity: 0.8; margin: 0; font-weight: 400; color: var(--text-color); min-height: 25px; /* Added for layout stability */ }
 .hero-buttons { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
 
-/* --- NEW FEATURE: Typewriter Effect Styles --- */
+/* --- NEW FEATURE: Typewriter Effect Styles (Cursor Removed) --- */
 .typewriter { font-weight: 600; color: var(--heading-color); }
-.typewriter::after { content: '|'; animation: blink 1s step-end infinite; color: var(--primary-color); margin-left: 4px; }
-@keyframes blink { from, to { opacity: 1; } 50% { opacity: 0; } }
 
 /* --- NEW: AURORA BACKGROUND STYLES --- */
 .aurora-bg {
@@ -170,8 +168,8 @@ section { transition: background-color 0.4s var(--easing-curve); }
 .favorite-project-item .key-contributions li { padding-left: 30px; position: relative; margin-bottom: 18px; }
 .favorite-project-item .key-contributions li::before { content: '✓'; color: var(--primary-color); position: absolute; left: 0; font-weight: 700; font-size: 1.2rem; top: 2px;}
 .tech-tags { margin-top: 30px; display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; }
-.tech-tags span { background-color: var(--surface-color); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 0.9rem; font-weight: 600; }
-.project-buttons { margin-top: 40px; display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; }
+.tech-tags span { background-color: var(--surface-color); padding: 8px 16px; border-radius: 20px; border: 1px solid var(--border-color); font-size: 0.9rem; font-weight: 600; transition: all 0.3s var(--easing-curve); }
+.tech-tags span:hover { transform: translateY(-3px); color: var(--primary-color); box-shadow: 0 0 15px 2px rgba(155, 89, 182, 0.4); }
 
 /* --- Project Highlight Effect --- */
 .highlight { animation: highlight-pulse 1.5s var(--easing-curve); border-radius: 22px; }
