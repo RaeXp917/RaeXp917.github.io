@@ -5,6 +5,7 @@
     "navFeatured": "Featured Projects",
     "navOther": "Other Projects",
     "navResume": "Resume",
+    "navCertifications": "Certifications",
     "navContact": "Contact",
     "heroTitle": "Klearxos Xlioumphs",
     "heroSubtitle": "Software Developer | Android & Backend Enthusiast",
@@ -41,12 +42,13 @@
     "pharmacyFeature5": "Engineered a dynamic theme system for a seamless light/dark mode experience.",
     "viewOnGithub": "View on GitHub",
     "otherProjectsTitle": "Other Projects",
-    "contactTitle": "Get In Touch",
-    "contactText": "I'm always open to discussing new projects and opportunities.",
-    "contactButton": "Email Me",
-    "footerRights": "All rights reserved.",
     "resumeSectionTitle": "Resume",
     "viewResumeBtn": "View My Resume",
     "hideResumeBtn": "Hide Resume",
-    "downloadButton": "Download PDF"
+    "downloadButton": "Download PDF",
+    "certificationsTitle": "Certifications",
+    "contactTitle": "Get In Touch",
+    "contactText": "I'm always open to discussing new projects and opportunities.",
+    "contactButton": "Email Me",
+    "footerRights": "All rights reserved."
 }
