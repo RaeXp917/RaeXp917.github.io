@@ -36,12 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (preloader) preloader.classList.add('hidden');
     });
 
-    // --- NEW FEATURE: Typewriter Effect Logic ---
+    // --- Typewriter Effect Logic ---
     let typewriterWords = [];
     let typewriterTimeout;
 
     function startTypewriter() {
-        clearTimeout(typewriterTimeout); // Stop any previous instance
+        clearTimeout(typewriterTimeout);
         const typewriterElement = document.querySelector('.typewriter');
         if (!typewriterElement || typewriterWords.length === 0) return;
 
@@ -80,11 +80,11 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Feature 4: Language Switcher ---
     const langEnBtn = document.getElementById('lang-en-btn');
     const langGrBtn = document.getElementById('lang-gr-btn');
-    let currentTranslations = {}; // To store the latest translations
+    let currentTranslations = {};
     
     const setLanguage = async (lang) => {
-        // --- THIS IS THE UPDATED LINE ---
-        const response = await fetch(`${lang}.json?v=${new Date().getTime()}`);
+        // --- THIS IS THE CORRECTED LINE ---
+        const response = await fetch(`lang/${lang}.json?v=${new Date().getTime()}`);
         currentTranslations = await response.json();
         
         document.querySelectorAll('[data-key]').forEach(elem => {
@@ -94,12 +94,11 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
 
-        // Populate typewriter words from translations and restart the effect
         typewriterWords = [
             currentTranslations.typewriterPhrase1,
             currentTranslations.typewriterPhrase2,
             currentTranslations.typewriterPhrase3,
-        ].filter(p => p); // Filter out any undefined phrases
+        ].filter(p => p);
         startTypewriter();
 
         document.documentElement.lang = lang; 
@@ -186,7 +185,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
-    // --- NEW FEATURE: Smooth Scrolling for Navigation ---
+    // --- Smooth Scrolling for Navigation ---
     const navLinksForScrolling = document.querySelectorAll('#side-nav a, .mobile-nav a');
     navLinksForScrolling.forEach(link => {
         link.addEventListener('click', function(e) {
@@ -201,7 +200,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
             }
             
-            // Close mobile menu on click
             if (mobileNavPanel.classList.contains('open')) {
                  hamburgerBtn.classList.remove('active');
                  mobileNavPanel.classList.remove('open');
@@ -239,16 +237,14 @@ document.addEventListener('DOMContentLoaded', () => {
         toggleResumeBtn.addEventListener('click', () => {
             const isOpen = resumeContainer.classList.toggle('open');
             
-            // Use the globally stored translations to update the button text
             toggleResumeBtn.innerHTML = isOpen 
                 ? currentTranslations.hideResumeBtn 
                 : currentTranslations.viewResumeBtn;
             
-            // If opening, scroll it into view
             if (isOpen) {
                 setTimeout(() => {
                      resumeContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }, 300); // Wait a moment for the animation to start
+                }, 300);
             }
         });
     }
