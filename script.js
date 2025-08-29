@@ -36,54 +36,12 @@ document.addEventListener('DOMContentLoaded', () => {
         if (preloader) preloader.classList.add('hidden');
     });
 
-    // --- Typewriter Effect Logic ---
-    let typewriterWords = [];
-    let typewriterTimeout;
-
-    function startTypewriter() {
-        clearTimeout(typewriterTimeout);
-        const typewriterElement = document.querySelector('.typewriter');
-        if (!typewriterElement || typewriterWords.length === 0) return;
-
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        const type = () => {
-            const currentWord = typewriterWords[wordIndex];
-            let typeSpeed = 150;
-
-            if (isDeleting) {
-                typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-                typeSpeed = 75;
-            } else {
-                typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-            }
-
-            if (!isDeleting && charIndex === currentWord.length) {
-                typeSpeed = 2000;
-                isDeleting = true;
-            } else if (isDeleting && charIndex === 0) {
-                isDeleting = false;
-                wordIndex = (wordIndex + 1) % typewriterWords.length;
-                typeSpeed = 500;
-            }
-
-            typewriterTimeout = setTimeout(type, typeSpeed);
-        };
-        
-        type();
-    }
-
     // --- Feature 4: Language Switcher ---
     const langEnBtn = document.getElementById('lang-en-btn');
     const langGrBtn = document.getElementById('lang-gr-btn');
     let currentTranslations = {};
     
     const setLanguage = async (lang) => {
-        // --- THIS IS THE CORRECTED LINE ---
         const response = await fetch(`lang/${lang}.json?v=${new Date().getTime()}`);
         currentTranslations = await response.json();
         
@@ -93,13 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 elem.innerHTML = currentTranslations[key];
             }
         });
-
-        typewriterWords = [
-            currentTranslations.typewriterPhrase1,
-            currentTranslations.typewriterPhrase2,
-            currentTranslations.typewriterPhrase3,
-        ].filter(p => p);
-        startTypewriter();
 
         document.documentElement.lang = lang; 
         localStorage.setItem('language', lang); 
