@@ -8,7 +8,7 @@
     "navCertifications": "Certifications",
     "navContact": "Contact",
     "heroTitle": "Klearxos Xlioumphs",
-    "heroSubtitle": "Software Developer | Android & Backend Enthusiast",
+    "heroSubtitle": "Android Developer & Backend Enthusiast",
     "githubButton": "View My GitHub",
     "summaryTitle": "Summary",
     "summaryText": "A dedicated and passionate Software Developer currently honing my skills in the Technician of Computer Applications program at <strong>IEK DELTA 360</strong>. With a strong focus on both native <strong>Android Development</strong> using Kotlin and Jetpack Compose, and an expanding expertise in <strong>Backend systems</strong>, I bridge the gap between user-facing applications and robust server-side logic. I am a firm believer in agile principles, emphasizing collaboration, flexibility, and continuous improvement in every project I undertake. My approach is defined by a commitment to lifelong learning, which I actively pursue through hands-on personal projects that allow me to explore new technologies and refine my problem-solving abilities. I am driven by the challenge of transforming complex ideas into elegant, functional software and am eager to contribute my skills to innovative and impactful projects.",
@@ -49,3 +49,4 @@
     "contactButton": "Email Me",
     "footerRights": "All rights reserved."
 }
+
