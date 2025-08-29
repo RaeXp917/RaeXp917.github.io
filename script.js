@@ -36,42 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
         if (preloader) preloader.classList.add('hidden');
     });
 
-    // --- NEW: Feature: Hero Subtitle Typewriter ---
-    const typewriterElement = document.querySelector('.typewriter');
-    let typeInterval; 
-
-    function startTypewriter(words) {
-        if (!typewriterElement || !words || words.length === 0) return;
-        
-        clearInterval(typeInterval); // Stop any previous typewriter instance
-        let wordIndex = 0;
-        let charIndex = 0;
-        let isDeleting = false;
-
-        function type() {
-            const currentWord = words[wordIndex];
-            if (isDeleting) {
-                typewriterElement.textContent = currentWord.substring(0, charIndex - 1);
-                charIndex--;
-                if (charIndex === 0) {
-                    isDeleting = false;
-                    wordIndex = (wordIndex + 1) % words.length;
-                }
-            } else {
-                typewriterElement.textContent = currentWord.substring(0, charIndex + 1);
-                charIndex++;
-                if (charIndex === currentWord.length) {
-                    isDeleting = true;
-                    // Pause at the end of the word
-                    setTimeout(type, 2000); 
-                    return;
-                }
-            }
-        }
-        typeInterval = setInterval(type, isDeleting ? 75 : 150);
-    }
-
-
     // --- Feature 4: Language Switcher ---
     const langEnBtn = document.getElementById('lang-en-btn');
     const langGrBtn = document.getElementById('lang-gr-btn');
@@ -87,12 +51,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 elem.innerHTML = currentTranslations[key];
             }
         });
-
-        // Start typewriter with the correct language strings
-        const typewriterWords = lang === 'gr' 
-            ? ["Android Developer", "Λάτρης του Backend", "Δημιουργός Ψηφιακών Λύσεων"]
-            : ["Android Developer", "Backend Enthusiast", "Creator of Digital Solutions"];
-        startTypewriter(typewriterWords);
 
         document.documentElement.lang = lang; 
         localStorage.setItem('language', lang); 
