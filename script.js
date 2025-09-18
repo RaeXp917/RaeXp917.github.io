@@ -42,7 +42,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentTranslations = {};
     
     const setLanguage = async (lang) => {
-        const response = await fetch(`lang/${lang}.json?v=${new Date().getTime()}`);
+        const response = await fetch(`en.json?v=${new Date().getTime()}`);
         currentTranslations = await response.json();
         
         document.querySelectorAll('[data-key]').forEach(elem => {
@@ -74,13 +74,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
     async function fetchGitHubProjects() {
         if (!projectGrid) return;
+
+        // --- MODIFICATION START: Updated Personal Cloud project card ---
+        const personalCloudCardHTML = `
+        <a class="project-card-link" href="https://github.com/RaeXp917/Personal-Cloud" target="_blank" rel="noopener">
+          <div class="glow-card fade-in" style="--glow-start:#3b1d5a; --glow-end:#9b59b6;">
+            <div class="project-card">
+              <h3>Personal Cloud (Seafile + Cloudflare)</h3>
+              <p>
+                Self-hosted “cloud storage” with Seafile in Docker on Windows 11, fronted by Cloudflare Tunnel.
+                MariaDB + Memcached, HTTPS, and autostart on login.
+              </p>
+              <p class="technologies"><strong>Tech:</strong> Docker, Seafile, MariaDB, Memcached, Cloudflare Tunnel, Windows</p>
+            </div>
+          </div>
+        </a>`;
+        projectGrid.innerHTML = personalCloudCardHTML;
+        // --- MODIFICATION END ---
+
         try {
             const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=pushed&per_page=10`);
             if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
             const repos = await response.json();
-            const filteredRepos = repos.filter(repo => !repo.fork && repo.name !== `${GITHUB_USERNAME}.github.io` && repo.name !== GITHUB_USERNAME && repo.name !== 'On-Duty-Pharmacies-App' && repo.name !== 'Context-Nexus-Website');
-            const projectsToShow = filteredRepos.slice(0, 4);
-            projectGrid.innerHTML = ''; 
+            const filteredRepos = repos.filter(repo => !repo.fork && repo.name !== `${GITHUB_USERNAME}.github.io` && repo.name !== GITHUB_USERNAME && repo.name !== 'On-Duty-Pharmacies-App' && repo.name !== 'Context-Nexus-Website' && repo.name !== 'Personal-Cloud');
+            
+            const projectsToShow = filteredRepos.slice(0, 3);
+            
             projectsToShow.forEach(repo => {
                 const repoLang = repo.language ? repo.language.toLowerCase().replace(/[\s+#]/g, '-') : '';
                 
@@ -97,12 +116,14 @@ document.addEventListener('DOMContentLoaded', () => {
                 
                 projectGrid.insertAdjacentHTML('beforeend', projectCardHTML);
             });
-            const newCards = projectGrid.querySelectorAll('.fade-in');
-            newCards.forEach(card => observer.observe(card));
+            
+            const allCards = projectGrid.querySelectorAll('.fade-in');
+            allCards.forEach(card => observer.observe(card));
+
             initializeSkillLinking();
         } catch (error) {
             console.error("Failed to fetch GitHub projects:", error);
-            projectGrid.innerHTML += `<p>Could not load projects from GitHub.</p>`;
+            projectGrid.insertAdjacentHTML('beforeend', `<p>Could not load additional projects from GitHub.</p>`);
         }
     }
     fetchGitHubProjects();
