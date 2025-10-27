@@ -1,6 +1,25 @@
 document.addEventListener('DOMContentLoaded', () => {
 
-    // --- Feature 1: Fade-in Animation on Scroll ---
+    // --- Particle.js Background ---
+    particlesJS('particles-js', {
+        "particles": {
+            "number": { "value": 80, "density": { "enable": true, "value_area": 800 } },
+            "color": { "value": "#4f46e5" },
+            "shape": { "type": "circle" },
+            "opacity": { "value": 0.5, "random": false },
+            "size": { "value": 3, "random": true },
+            "line_linked": { "enable": true, "distance": 150, "color": "#a0aec0", "opacity": 0.4, "width": 1 },
+            "move": { "enable": true, "speed": 2, "direction": "none", "random": false, "straight": false, "out_mode": "out", "bounce": false }
+        },
+        "interactivity": {
+            "detect_on": "canvas",
+            "events": { "onhover": { "enable": true, "mode": "grab" }, "onclick": { "enable": true, "mode": "push" }, "resize": true },
+            "modes": { "grab": { "distance": 140, "line_linked": { "opacity": 1 } }, "push": { "particles_nb": 4 } }
+        },
+        "retina_detect": true
+    });
+
+    // --- Fade-in Animation on Scroll ---
     const observer = new IntersectionObserver((entries) => {
         entries.forEach((entry) => {
             if (entry.isIntersecting) {
@@ -12,115 +31,100 @@ document.addEventListener('DOMContentLoaded', () => {
     const elementsToFadeIn = document.querySelectorAll('.fade-in');
     elementsToFadeIn.forEach((el) => observer.observe(el));
 
-    // --- Feature 2: Day/Night Theme Switch ---
-    const themeToggle = document.getElementById('theme-toggle');
-    const body = document.body;
-    const applyTheme = (theme) => {
-        body.classList.toggle('light-theme', theme === 'light');
-        if(themeToggle) themeToggle.checked = theme === 'light';
-    };
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    applyTheme(savedTheme);
-
-    if (themeToggle) {
-        themeToggle.addEventListener('change', () => {
-            const newTheme = themeToggle.checked ? 'light' : 'dark';
-            applyTheme(newTheme);
-            localStorage.setItem('theme', newTheme);
-        });
-    }
-
-    // --- Feature 3: Preloader ---
+    // --- Preloader ---
     const preloader = document.getElementById('preloader');
     window.addEventListener('load', () => {
         if (preloader) preloader.classList.add('hidden');
     });
 
-    // --- Feature 4: Language Switcher ---
-    const langEnBtn = document.getElementById('lang-en-btn');
-    const langGrBtn = document.getElementById('lang-gr-btn');
-    let currentTranslations = {};
-    
-    const setLanguage = async (lang) => {
-        const response = await fetch(`en.json?v=${new Date().getTime()}`);
-        currentTranslations = await response.json();
-        
-        document.querySelectorAll('[data-key]').forEach(elem => {
-            const key = elem.getAttribute('data-key');
-            if (currentTranslations[key]) {
-                elem.innerHTML = currentTranslations[key];
-            }
-        });
-
-        document.documentElement.lang = lang; 
-        localStorage.setItem('language', lang); 
-
-        langEnBtn.classList.toggle('active', lang === 'en');
-        langGrBtn.classList.toggle('active', lang === 'gr');
-    };
-    
-    if (langEnBtn && langGrBtn) {
-        langEnBtn.addEventListener('click', () => setLanguage('en'));
-        langGrBtn.addEventListener('click', () => setLanguage('gr'));
+    // --- Hero Section Typing Animation ---
+    let typedInstance = null;
+    function initializeTypedJs(strings) {
+        if (typedInstance) {
+            typedInstance.destroy();
+        }
+        const options = {
+            strings: strings,
+            typeSpeed: 70,
+            backSpeed: 40,
+            backDelay: 2000,
+            startDelay: 500,
+            loop: true,
+            smartBackspace: true
+        };
+        typedInstance = new Typed('#typed-subtitle', options);
     }
-    
-    const savedLang = localStorage.getItem('language') || (navigator.language.startsWith('el') ? 'gr' : 'en');
-    setLanguage(savedLang);
 
+    // Initialize with new strings
+    const typedStrings = [
+        "Mobile Dev Enthusiast.",
+        "Backend Developer.",
+        "Software Developer."
+    ];
+    initializeTypedJs(typedStrings);
 
-    // --- Feature 5: Automatically Fetch GitHub Projects ---
+    // --- Automatically Fetch GitHub Projects ---
     const GITHUB_USERNAME = 'RaeXp917';
     const projectGrid = document.getElementById('github-project-grid');
 
     async function fetchGitHubProjects() {
         if (!projectGrid) return;
 
-        // --- MODIFICATION START: Updated Personal Cloud project card ---
+        // Add the static "Personal Cloud" project first
         const personalCloudCardHTML = `
-        <a class="project-card-link" href="https://github.com/RaeXp917/Personal-Cloud" target="_blank" rel="noopener">
-          <div class="glow-card fade-in" style="--glow-start:#3b1d5a; --glow-end:#9b59b6;">
-            <div class="project-card">
-              <h3>Personal Cloud (Seafile + Cloudflare)</h3>
-              <p>
-                Self-hosted “cloud storage” with Seafile in Docker on Windows 11, fronted by Cloudflare Tunnel.
-                MariaDB + Memcached, HTTPS, and autostart on login.
-              </p>
-              <p class="technologies"><strong>Tech:</strong> Docker, Seafile, MariaDB, Memcached, Cloudflare Tunnel, Windows</p>
+        <div class="project-card fade-in">
+            <div class="project-image">
+                <i class="fa-solid fa-cloud" style="font-size: 4rem; color: var(--primary-color);"></i>
             </div>
-          </div>
-        </a>`;
+            <div class="project-content">
+                <h3 class="project-title">Personal Cloud</h3>
+                <p class="project-description">Self-hosted cloud storage with Seafile in Docker on Windows 11, fronted by a Cloudflare Tunnel for secure access.</p>
+                <div class="tech-tags">
+                    <span>Docker</span><span>Seafile</span><span>MariaDB</span><span>Cloudflare</span>
+                </div>
+                <div class="project-links">
+                    <a href="https://github.com/RaeXp917/Personal-Cloud" target="_blank" class="cta-button secondary">View on GitHub <i class="fa-brands fa-github"></i></a>
+                </div>
+            </div>
+        </div>`;
         projectGrid.innerHTML = personalCloudCardHTML;
-        // --- MODIFICATION END ---
 
         try {
             const response = await fetch(`https://api.github.com/users/${GITHUB_USERNAME}/repos?sort=pushed&per_page=10`);
             if (!response.ok) throw new Error(`GitHub API error: ${response.status}`);
             const repos = await response.json();
-            const filteredRepos = repos.filter(repo => !repo.fork && repo.name !== `${GITHUB_USERNAME}.github.io` && repo.name !== GITHUB_USERNAME && repo.name !== 'On-Duty-Pharmacies-App' && repo.name !== 'Context-Nexus-Website' && repo.name !== 'Personal-Cloud');
             
-            const projectsToShow = filteredRepos.slice(0, 3);
+            const filteredRepos = repos.filter(repo => !repo.fork && 
+                repo.name !== `${GITHUB_USERNAME}.github.io` && 
+                repo.name !== GITHUB_USERNAME && 
+                repo.name !== 'Context-Nexus-Website' && 
+                repo.name !== 'E-efimerevon-inv-managment' && 
+                repo.name !== 'On-Duty-Pharmacies-App' &&
+                repo.name !== 'Personal-Cloud');
+            
+            const projectsToShow = filteredRepos.slice(0, 2); // Show 2 more to make a total of 3
             
             projectsToShow.forEach(repo => {
-                const repoLang = repo.language ? repo.language.toLowerCase().replace(/[\s+#]/g, '-') : '';
-                
                 const projectCardHTML = `
-                <a href="${repo.html_url}" target="_blank" rel="noopener noreferrer" class="project-card-link">
-                    <div class="glow-card fade-in" data-technologies="${repoLang} github">
-                        <div class="project-card">
-                            <h3>${repo.name.replace(/-/g, ' ')}</h3>
-                            <p>${repo.description || 'No description provided.'}</p>
-                            <p class="technologies"><strong>Main Language:</strong> ${repo.language || 'N/A'}</p>
+                <div class="project-card fade-in">
+                    <div class="project-content">
+                        <h3 class="project-title">${repo.name}</h3>
+                        <p class="project-description">${repo.description || 'No description provided.'}</p>
+                        <div class="tech-tags">
+                            ${repo.language ? `<span>${repo.language}</span>` : ''}
+                        </div>
+                        <div class="project-links">
+                            <a href="${repo.html_url}" target="_blank" class="cta-button secondary">View on GitHub <i class="fa-brands fa-github"></i></a>
                         </div>
                     </div>
-                </a>`;
+                </div>`;
                 
                 projectGrid.insertAdjacentHTML('beforeend', projectCardHTML);
             });
             
-            const allCards = projectGrid.querySelectorAll('.fade-in');
+            const allCards = document.querySelectorAll('.fade-in');
             allCards.forEach(card => observer.observe(card));
 
-            initializeSkillLinking();
         } catch (error) {
             console.error("Failed to fetch GitHub projects:", error);
             projectGrid.insertAdjacentHTML('beforeend', `<p>Could not load additional projects from GitHub.</p>`);
@@ -128,68 +132,45 @@ document.addEventListener('DOMContentLoaded', () => {
     }
     fetchGitHubProjects();
 
-    // --- Feature 6: Skill Tag to Project Scrolling ---
-    function initializeSkillLinking() {
-        document.querySelectorAll('[data-skill]').forEach(tag => tag.replaceWith(tag.cloneNode(true)));
-        document.querySelectorAll('[data-skill]').forEach(tag => {
-            tag.addEventListener('click', () => {
-                const skill = tag.dataset.skill;
-                const projectToScrollTo = document.querySelector(`[data-technologies*="${skill}"]`);
-                if (projectToScrollTo) {
-                    projectToScrollTo.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    projectToScrollTo.classList.add('highlight');
-                    setTimeout(() => projectToScrollTo.classList.remove('highlight'), 2000);
-                } else {
-                    console.warn(`No project found for skill: ${skill}`);
-                }
-            });
-        });
-    }
-    initializeSkillLinking();
-
-    // --- Feature 7: Mobile Hamburger Menu ---
+    // --- Mobile Hamburger Menu ---
     const hamburgerBtn = document.getElementById('hamburger-btn');
     const mobileNavPanel = document.getElementById('mobile-nav-panel');
     if (hamburgerBtn && mobileNavPanel) {
         hamburgerBtn.addEventListener('click', () => {
-            hamburgerBtn.classList.toggle('active');
             mobileNavPanel.classList.toggle('open');
         });
     }
     
-    // --- Smooth Scrolling for Navigation ---
-    const navLinksForScrolling = document.querySelectorAll('#side-nav a, .mobile-nav a');
-    navLinksForScrolling.forEach(link => {
+    // --- Smooth Scrolling & Active Nav Link Logic ---
+    const allNavLinks = document.querySelectorAll('.top-nav a, .mobile-nav a');
+    allNavLinks.forEach(link => {
         link.addEventListener('click', function(e) {
-            e.preventDefault();
-            const targetId = this.getAttribute('href');
-            const targetElement = document.querySelector(targetId);
+            if (this.getAttribute('href').startsWith('#')) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
 
-            if (targetElement) {
-                targetElement.scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'start'
-                });
-            }
-            
-            if (mobileNavPanel.classList.contains('open')) {
-                 hamburgerBtn.classList.remove('active');
-                 mobileNavPanel.classList.remove('open');
+                if (targetElement) {
+                    targetElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+                
+                if (mobileNavPanel.classList.contains('open')) {
+                    mobileNavPanel.classList.remove('open');
+                }
             }
         });
     });
 
-
-    // --- Feature 8: Active Nav Link Highlighting ---
-    const sections = document.querySelectorAll('main section[id]');
-    const allNavLinks = document.querySelectorAll('.mobile-nav a, #side-nav a');
+    // --- Active Nav Link Highlighting on Scroll ---
+    const sections = document.querySelectorAll('main section[id], header[id]');
+    const navLinksForHighlight = document.querySelectorAll('.nav-links a, .mobile-nav a');
 
     const navHighlighter = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 const sectionId = entry.target.id;
                 
-                allNavLinks.forEach(link => {
+                navLinksForHighlight.forEach(link => {
                     link.classList.remove('nav-active');
                     if (link.getAttribute('href') === `#${sectionId}`) {
                         link.classList.add('nav-active');
@@ -208,16 +189,26 @@ document.addEventListener('DOMContentLoaded', () => {
     if (toggleResumeBtn && resumeContainer) {
         toggleResumeBtn.addEventListener('click', () => {
             const isOpen = resumeContainer.classList.toggle('open');
-            
-            toggleResumeBtn.innerHTML = isOpen 
-                ? currentTranslations.hideResumeBtn 
-                : currentTranslations.viewResumeBtn;
-            
+            toggleResumeBtn.textContent = isOpen ? "Hide My Resume" : "View My Resume";
             if (isOpen) {
                 setTimeout(() => {
                      resumeContainer.scrollIntoView({ behavior: 'smooth', block: 'center' });
                 }, 300);
             }
+        });
+    }
+
+    // --- Contact Form Submission ---
+    const contactForm = document.getElementById('contact-form');
+    if (contactForm) {
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault(); // Prevent the default form submission (page reload)
+            
+            // Here you would typically send the form data to a backend or a service like EmailJS
+            
+            // For now, we'll just show a confirmation and reset the form
+            alert('Thank you for your message! I will get back to you shortly.');
+            contactForm.reset();
         });
     }
 });

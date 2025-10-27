@@ -1,211 +1,264 @@
 <!DOCTYPE html>
-<!-- lang="en" will be set by JS -->
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title data-key="title">Klearxos Xlioumphs - Software Developer</title>
+    <title>Klearxos Xlioumphs - Software Developer</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
-</head>
-<body>
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head><body>
+    <!-- Canvas for the particle background -->
+    <div id="particles-js"></div>
 
     <div id="preloader">
         <div class="loader"></div>
     </div>
 
-    <!-- Floating Side Navigation (for Desktop) -->
-    <nav id="side-nav">
-        <a href="#summary" data-key="navSummary">Summary</a>
-        <a href="#skills" data-key="navSkills">Skills</a>
-        <a href="#featured-projects" data-key="navFeatured">Featured Projects</a>
-        <a href="#other-projects" data-key="navOther">Other Projects</a>
-        <a href="#resume" data-key="navResume">Resume</a>
-        <a href="#certifications" data-key="navCertifications">Certifications</a>
-        <a href="#contact" data-key="navContact">Contact</a>
+    <!-- New Top Navigation Bar -->
+    <nav class="top-nav" id="top-nav">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <svg width="40" height="40" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
+                            <stop offset="0%" style="stop-color:var(--primary-color);stop-opacity:1" />
+                            <stop offset="100%" style="stop-color:var(--secondary-color);stop-opacity:1" />
+                        </linearGradient>
+                    </defs>
+                    <path fill="url(#grad1)" d="M60.4,152.4l-11.3-11.3c-2.3-2.3-2.3-6.1,0-8.5l53.8-53.8c2.3-2.3,6.1-2.3,8.5,0l11.3,11.3c2.3-2.3,2.3-6.1,0-8.5L68.9,152.4C66.5,154.7,62.7,154.7,60.4,152.4z"/>
+                    <path fill="#FFFFFF" d="M103.6,174.9l-11.3-11.3c-2.3-2.3-2.3-6.1,0-8.5l76.2-76.2c2.3-2.3,6.1-2.3,8.5,0l11.3,11.3c2.3-2.3,2.3-6.1,0-8.5L112,174.9C109.7,177.2,105.9,177.2,103.6,174.9z"/>
+                </svg>
+                <span>Klearxos Xlioumphs</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="#hero" class="nav-active">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#skills">SKILLS</a></li>
+                <li><a href="#featured-projects">PROJECTS</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+            <button class="hamburger-menu" id="hamburger-btn" aria-label="Open navigation menu">
+                <i class="fa-solid fa-bars"></i>
+            </button>
+        </div>
     </nav>
-
-   
-    <button class="hamburger-menu" id="hamburger-btn" aria-label="Open navigation menu">
-        <span></span>
-        <span></span>
-        <span></span>
-    </button>
-
-   
-    <nav class="mobile-nav" id="mobile-nav-panel">
-        <a href="#summary" data-key="navSummary">Summary</a>
-        <a href="#skills" data-key="navSkills">Skills</a>
-        <a href="#featured-projects" data-key="navFeatured">Featured Projects</a>
-        <a href="#other-projects" data-key="navOther">Other Projects</a>
-        <a href="#resume" data-key="navResume">Resume</a>
-        <a href="#certifications" data-key="navCertifications">Certifications</a>
-        <a href="#contact" data-key="navContact">Contact</a>
-    </nav>
-
     
+    <div class="mobile-nav" id="mobile-nav-panel">
+        <a href="#hero">HOME</a>
+        <a href="#about">ABOUT</a>
+        <a href="#skills">SKILLS</a>
+        <a href="#featured-projects">PROJECTS</a>
+        <a href="#contact">CONTACT</a>
+    </div>
+
+    <!-- New Hero Section -->
     <header class="hero" id="hero">
-        
-        <div class="aurora-bg">
-          <div class="aurora__item"></div>
-          <div class="aurora__item"></div>
-          <div class="aurora__item"></div>
-          <div class="aurora__item"></div>
-        </div>
-
-        <div class="header-controls">
-            <div class="toggle-switch">
-                <input type="checkbox" class="checkbox" id="theme-toggle">
-                <label class="switch-label" for="theme-toggle">
-                    <span class="slider">
-                        <span class="slider-thumb"></span>
-                    </span>
-                </label>
-            </div>
-        </div>
-
         <div class="container hero-content">
-           
-            <div class="hero-glass-panel">
-                <img src="profile.jpg" alt="Klearxos Xlioumphs profile picture" class="profile-pic fade-in">
-                <h1 class="fade-in" data-key="heroTitle">Klearxos Xlioumphs</h1>
-                
-                <!-- STATIC SUBTITLE BELOW -->
-                <p class="subtitle fade-in" data-key="heroSubtitle">
-                    Android Developer & Backend Enthusiast
+            <!-- Left Column -->
+            <div class="hero-text">
+                <h1 class="fade-in">Hi, I'm <span class="gradient-text">Klearxos Xlioumphs</span></h1>
+                <h2 class="fade-in">I'm a <span id="typed-subtitle"></span></h2>
+                <p class="hero-description fade-in">
+                    Passionate about creating innovative solutions with modern technologies. Specialized in Android development, backend systems, and system integration.
                 </p>
-
                 <div class="hero-buttons fade-in">
-                    <a href="https://github.com/RaeXp917" target="_blank" class="cta-button secondary" data-key="githubButton">View My GitHub</a>
+                    <a href="#featured-projects" class="cta-button">View My Work</a>
+                    <a href="Klearxos_Xlioumphs_Resume.pdf" download="Klearxos_Xlioumphs_Resume.pdf" class="cta-button secondary">
+                        <i class="fa-solid fa-download"></i> Download CV
+                    </a>
+                </div>
+            </div>
+            <!-- Right Column -->
+            <div class="hero-image-container fade-in">
+                <div class="image-wrapper">
+                    <img src="profile.jpg" alt="Klearxos Xlioumphs profile picture" class="profile-pic">
                 </div>
             </div>
         </div>
     </header>
 
     <main>
-        <section id="summary" class="container">
-            <h2 class="fade-in" data-key="summaryTitle">Summary</h2>
-            <p class="fade-in" data-key="summaryText">
-                A dedicated and passionate Software Developer currently honing my skills in the Technician of Computer Applications program at <strong>IEK DELTA 360</strong>. With a strong focus on both native <strong>Android Development</strong> using Kotlin and Jetpack Compose, and an expanding expertise in <strong>Backend systems</strong>, I bridge the gap between user-facing applications and robust server-side logic. I am a firm believer in agile principles, emphasizing collaboration, flexibility, and continuous improvement in every project I undertake. My approach is defined by a commitment to lifelong learning, which I actively pursue through hands-on personal projects that allow me to explore new technologies and refine my problem-solving abilities. I am driven by the challenge of transforming complex ideas into elegant, functional software and am eager to contribute my skills to innovative and impactful projects.
-            </p>
-        </section>
+        <!-- New About Me Section -->
+        <section id="about" class="container">
+            <h2 class="section-title fade-in">&lt;ABOUT_ME/&gt;</h2>
+            <div class="about-grid">
+                <!-- Left Column: Core Specialties -->
+                <div class="about-column fade-in">
+                    <h3 class="about-subtitle"><i class="fa-solid fa-star"></i> Core Specialties</h3>
+                    <div class="specialties-container">
+                        <div class="specialty-card">
+                            <div class="specialty-icon" style="--icon-color: #6366f1;">
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+                            </div>
+                            <div class="specialty-content">
+                                <h4>MOBILE DEVELOPMENT</h4>
+                                <p>Modern Android applications, responsive UI/UX design, and interactive user experiences using Kotlin and Jetpack Compose.</p>
+                            </div>
+                        </div>
+                        <div class="specialty-card">
+                            <div class="specialty-icon" style="--icon-color: #ec4899;">
+                                <i class="fa-solid fa-server"></i>
+                            </div>
+                            <div class="specialty-content">
+                                <h4>BACKEND DEVELOPMENT</h4>
+                                <p>Robust server architectures, REST APIs, and database design optimization with tools like Firebase, SQL, and Python.</p>
+                            </div>
+                        </div>
+                        <div class="specialty-card">
+                            <div class="specialty-icon" style="--icon-color: #10b981;">
+                                <i class="fa-solid fa-sitemap"></i>
+                            </div>
+                            <div class="specialty-content">
+                                <h4>SOFTWARE ARCHITECTURE</h4>
+                                <p>Designing scalable and maintainable systems using proven patterns like MVVM to ensure long-term project success.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Right Column: Proficiency & Mission -->
+                <div class="about-column fade-in">
+                    <h3 class="about-subtitle"><i class="fa-solid fa-code"></i> Core Languages</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item">
+                            <span>Kotlin</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="--level: 90%;"></div></div>
+                        </li>
+                        <li class="skill-item">
+                            <span>Java</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="--level: 85%;"></div></div>
+                        </li>
+                        <li class="skill-item">
+                            <span>C++</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="--level: 70%;"></div></div>
+                        </li>
+                        <li class="skill-item">
+                            <span>C#</span>
+                            <div class="progress-bar-container"><div class="progress-bar" style="--level: 60%;"></div></div>
+                        </li>
+                    </ul>
 
-        <section id="motivation" class="container">
-            <h2 class="fade-in" data-key="motivationTitle">My Motivation</h2>
-            <p class="fade-in" data-key="motivationText">
-                My journey into programming began in childhood, fueled by a deep-seated passion for technology and the creative process. What motivates me is the profound satisfaction of turning an abstract concept into a tangible, interactive application that can solve a real-world problem, provide a service, or simply bring joy to a user. I thrive on the intellectual challenge of software development—from architecting a clean and scalable system to meticulously debugging and optimizing code for peak performance. This cycle of analysis, creation, and refinement is not just a process, but a craft I am dedicated to mastering. Exploring languages like Kotlin and Java solidified my interest, as they provided the powerful tools needed to build the sophisticated applications I envisioned. Ultimately, my motivation is to leverage technology to build elegant solutions and contribute meaningfully to the ever-evolving digital landscape.
-            </p>
+                    <h3 class="about-subtitle mission-title"><i class="fa-solid fa-rocket"></i> My Motivation</h3>
+                    <p>My journey into programming began in childhood, fueled by a deep-seated passion for technology and the creative process. What motivates me is the profound satisfaction of turning an abstract concept into a tangible, interactive application that can solve a real-world problem, provide a service, or simply bring joy to a user. I thrive on the intellectual challenge of software development—from architecting a clean and scalable system to meticulously debugging and optimizing code for peak performance. This cycle of analysis, creation, and refinement is not just a process, but a craft I am dedicated to mastering. Exploring languages like Kotlin and Java solidified my interest, as they provided the powerful tools needed to build the sophisticated applications I envisioned. Ultimately, my motivation is to leverage technology to build elegant solutions and contribute meaningfully to the ever-evolving digital landscape.</p>
+                </div>
+            </div>
         </section>
         
         <section id="skills" class="container">
-            <h2 class="fade-in" data-key="skillsTitle">Skills & Proficiencies</h2>
+            <h2 class="section-title fade-in">Full Skillset</h2>
+            <div class="skills-container">
 
-            <h3 class="subsection-title fade-in" data-key="skillsSubLanguages">Languages & Frameworks</h3>
-            <div class="skills-grid fade-in">
-                <span data-skill="kotlin">Kotlin</span><span data-skill="jetpack-compose">Jetpack Compose</span><span data-skill="java">Java</span><span data-skill="javafx">JavaFX</span><span data-skill="android-sdk">Android SDK</span><span data-skill="mvvm">MVVM</span><span data-skill="gradle">Gradle</span><span data-skill="python">Python</span><span data-skill="opencv">OpenCV</span><span data-skill="javacv">JavaCV</span><span data-skill="c-plus-plus">C++</span><span data-skill="c-sharp">C#</span><span data-skill="html">HTML</span><span data-skill="css">CSS</span><span data-skill="javascript">JavaScript</span><span data-skill="php">PHP</span><span data-skill="postgresql">PostgreSQL</span>
-            </div>
+                <div class="skill-category fade-in">
+                    <h3 class="subsection-title">Mobile & Desktop Development</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item"><span>Kotlin (Android)</span><div class="progress-bar-container"><div class="progress-bar" style="--level: 90%;"></div></div></li>
+                        <li class="skill-item"><span>Jetpack Compose</span><div class="progress-bar-container"><div class="progress-bar" style="--level: 85%;"></div></div></li>
+                        <li class="skill-item"><span>Java (JavaFX)</span><div class="progress-bar-container"><div class="progress-bar" style="--level: 80%;"></div></div></li>
+                        <li class="skill-item"><span>MVVM Architecture</span><div class="progress-bar-container"><div class="progress-bar" style="--level: 90%;"></div></div></li>
+                    </ul>
+                </div>
 
-            <h3 class="subsection-title fade-in" data-key="skillsSubIDEs">IDEs</h3>
-            <div class="skills-grid fade-in">
-                <span data-skill="android-studio">Android Studio</span><span data-skill="intellij">IntelliJ IDEA</span><span data-skill="rider">Rider</span><span data-skill="visual-studio-code">Visual Studio Code</span>
-            </div>
+                <div class="skill-category fade-in">
+                    <h3 class="subsection-title">Backend & Database</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item"><span>Firebase & Firestore</span><div class="progress-bar-container"><div class="progress-bar" style="--level: 75%;"></div></div></li>
+                        <li class="skill-item"><span>PostgreSQL / SQL</span><div class="progress-bar-container"><div class="progress-bar" style="--level: 65%;"></div></div></li>
+                        <li class="skill-item"><span>Python</span><div class="progress-bar-container"><div class="progress-bar" style="--level: 60%;"></div></div></li>
+                        <li class="skill-item"><span>Ktor</span><div class="progress-bar-container"><div class="progress-bar" style="--level: 50%;"></div></div></li>
+                    </ul>
+                </div>
 
-            <h3 class="subsection-title fade-in" data-key="skillsSubTools">Developer Tools</h3>
-            <div class="skills-grid fade-in">
-                <span data-skill="git">Git</span><span data-skill="github">GitHub</span><span data-skill="firebase">Firebase</span><span data-skill="firestore">Firestore</span><span data-skill="docker">Docker</span><span data-skill="dbeaver">DBeaver</span><span data-skill="xampp">XAMPP</span>
+                <div class="skill-category fade-in">
+                    <h3 class="subsection-title">Core Languages & Tools</h3>
+                    <ul class="skills-list">
+                        <li class="skill-item"><span>C++</span><div class="progress-bar-container"><div class="progress-bar" style="--level: 70%;"></div></div></li>
+                        <li class="skill-item"><span>C#</span><div class="progress-bar-container"><div class="progress-bar" style="--level: 60%;"></div></div></li>
+                        <li class="skill-item"><span>Flutter</span><div class="progress-bar-container"><div class="progress-bar" style="--level: 30%;"></div></div></li>
+                        <li class="skill-item"><span>Swift</span><div class="progress-bar-container"><div class="progress-bar" style="--level: 30%;"></div></div></li>
+                    </ul>
+                </div>
+
             </div>
         </section>
 
         <section id="featured-projects" class="container">
-            <h2 class="fade-in" data-key="projectsTitle">Featured Projects</h2>
+            <h2 class="section-title fade-in">Featured Projects</h2>
+            <div class="project-grid">
 
-            <!-- Favorite Project 1: ContextNexus -->
-            <div class="favorite-project-item fade-in" data-technologies="unreal-engine c-plus-plus c-sharp slate-ui github rider">
-                <div class="project-text-centered">
-                    <img src="assets/Context_Nexus_Logo.png" alt="Context Nexus Logo" class="project-logo">
-                        
-<p data-key="nexusDescription">Context Nexus is a professional, in-editor AI co-pilot for Unreal Engine that functions as a true pair programmer with deep architectural awareness. It addresses a core limitation of existing AI tools by building a comprehensive <strong>project knowledge graph</strong> from both C++ and Blueprint sources. This <strong>Dual-Source Analysis</strong> engine allows the AI to understand intricate relationships across the entire codebase. By using a unique <strong>'Targeted Context'</strong> system, it sends only the most relevant code snippets to the AI, dramatically increasing accuracy, reducing token costs, and enabling developers to ask complex architectural questions that were previously impossible for an AI to answer.</p>
-
-  
-                    <h4 data-key="nexusKeyFeatures">Key Contributions & Responsibilities:</h4>
-                    <ul class="key-contributions">
-                        <li data-key="nexusFeatureFull1">Developed and enhanced the core C++ analysis engine, enabling the tool to parse and understand a project's entire C++ source code.</li>
-                        <li data-key="nexusFeatureFull2">Architected and implemented key UI components using the Slate UI framework, including the 'Project Explorer' and the integrated AI chat panel.</li>
-                        <li data-key="nexusFeatureFull3">Resolved critical C++ compilation, linker errors, and memory corruption bugs to ensure plugin stability and reliability.</li>
-                        <li data-key="nexusFeatureFull4">Integrated the plugin directly into the Unreal Editor's Content Browser, creating a seamless workflow for developers.</li>
-                        <li data-key="nexusFeatureFull5">Enhanced the AI's understanding by implementing semantic analysis of Blueprint graphs and a custom Domain-Specific Language (DSL).</li>
-                    </ul>
-                    <div class="tech-tags">
-                        <span>Unreal Engine</span><span>C++</span><span>C#</span><span>Slate UI</span><span>GitHub</span>
+                <!-- Featured Project 1: ContextNexus -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="assets/Context_Nexus_Logo.png" alt="Context Nexus Logo">
                     </div>
-                    <div class="project-illustration-container">
-                        <div id="contextnexus-animation" class="contextnexus-illustration">
-                            <div class="code code-cpp"><header><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.9999 6.675L13.1999 6.075C12.9999 5.975 12.8999 5.775 12.9999 5.675L13.8999 3.975C14.4999 2.775 13.1999 1.475 11.9999 2.075L10.2999 2.975C10.1999 3.075 9.9999 2.975 9.8999 2.775L9.2999 0.975C8.8999 -0.325 7.0999 -0.325 6.6999 0.975L6.0999 2.775C5.9999 2.975 5.7999 3.075 5.6999 2.975L3.9999 2.075C2.7999 1.475 1.4999 2.775 2.0999 3.975L2.9999 5.675C3.0999 5.775 2.9999 5.975 2.7999 6.075L0.999902 6.675C-0.300098 7.075 -0.300098 8.975 0.999902 9.375L2.7999 9.975C2.9999 9.975 3.0999 10.175 2.9999 10.275L2.0999 11.975C1.4999 13.175 2.7999 14.475 3.9999 13.875L5.6999 12.975C5.8999 12.875 6.0999 12.975 6.0999 13.175L6.6999 14.975C7.0999 16.275 8.9999 16.275 9.3999 14.975L9.9999 13.175C10.0999 12.975 10.2999 12.875 10.3999 12.975L12.0999 13.875C13.2999 14.475 14.5999 13.175 13.9999 11.975L12.9999 10.275C12.8999 10.075 12.9999 9.875 13.1999 9.875L14.9999 9.275C16.2999 8.875 16.2999 7.075 14.9999 6.675ZM7.9999 10.375C6.6999 10.375 5.5999 9.275 5.5999 7.975C5.5999 6.675 6.6999 5.575 7.9999 5.575C9.2999 5.575 10.3999 6.675 10.3999 7.975C10.3999 9.275 9.2999 10.375 7.9999 10.375Z" fill="#4C4F5A"/></svg><h1>C++</h1></header><div class="code-content"><code><p class="line-1"><span class="c-p">class</span> <span class="c-g">UAnalysisEngine</span> {</p><p class="line-2"><span class="c-y">public</span>:</p><p class="line-3"><span class="c-b">void</span> <span class="c-o">ParseSource</span>(<span class="c-b">FString</span>& Code);</p><p class="line-4"><span class="c-c">// ... core logic ...</span></p><p class="line-5">};</p></code></div></div>
-                            <div class="code code-csharp"><header><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.9999 6.675L13.1999 6.075C12.9999 5.975 12.8999 5.775 12.9999 5.675L13.8999 3.975C14.4999 2.775 13.1999 1.475 11.9999 2.075L10.2999 2.975C10.1999 3.075 9.9999 2.975 9.8999 2.775L9.2999 0.975C8.8999 -0.325 7.0999 -0.325 6.6999 0.975L6.0999 2.775C5.9999 2.975 5.7999 3.075 5.6999 2.975L3.9999 2.075C2.7999 1.475 1.4999 2.775 2.0999 3.975L2.9999 5.675C3.0999 5.775 2.9999 5.975 2.7999 6.075L0.999902 6.675C-0.300098 7.075 -0.300098 8.975 0.999902 9.375L2.7999 9.975C2.9999 9.975 3.0999 10.175 2.9999 10.275L2.0999 11.975C1.4999 13.175 2.7999 14.475 3.9999 13.875L5.6999 12.975C5.8999 12.875 6.0999 12.975 6.0999 13.175L6.6999 14.975C7.0999 16.275 8.9999 16.275 9.3999 14.975L9.9999 13.175C10.0999 12.975 10.2999 12.875 10.3999 12.975L12.0999 13.875C13.2999 14.475 14.5999 13.175 13.9999 11.975L12.9999 10.275C12.8999 10.075 12.9999 9.875 13.1999 9.875L14.9999 9.275C16.2999 8.875 16.2999 7.075 14.9999 6.675ZM7.9999 10.375C6.6999 10.375 5.5999 9.275 5.5999 7.975C5.5999 6.675 6.6999 5.575 7.9999 5.575C9.2999 5.575 10.3999 6.675 10.3999 7.975C10.3999 9.275 9.2999 10.375 7.9999 10.375Z" fill="#4C4F5A"/></svg><h1>C#</h1></header><div class="code-content"><code><p class="line-1"><span class="c-p">public</span> <span class="c-p">class</span> <span class="c-g">SlateUI</span> {</p><p class="line-2"><span class="c-c">// Build the UI</span></p><p class="line-3"><span class="c-p">public</span> <span class="c-b">Widget</span> <span class="c-o">CreateExplorer</span>()</p><p class="line-4">{ ... }</p><p class="line-5">}</p></code></div></div>
-                            <div class="editor-block"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">Context Nexus</h3>
+                        <p class="project-description">
+                            A professional, in-editor AI co-pilot for Unreal Engine with deep architectural awareness. It builds a comprehensive <strong>project knowledge graph</strong> from both C++ and Blueprint sources, enabling the AI to understand intricate code relationships and answer complex architectural questions.
+                        </p>
+                        <h4 class="contributions-title">Key Contributions & Responsibilities:</h4>
+                        <ul class="contributions-list">
+                            <li>Developed and enhanced the core C++ analysis engine.</li>
+                            <li>Architected and implemented key UI components using the Slate UI framework.</li>
+                            <li>Resolved critical C++ compilation, linker, and memory corruption bugs.</li>
+                            <li>Integrated the plugin directly into the Unreal Editor's Content Browser.</li>
+                            <li>Implemented semantic analysis of Blueprint graphs and a custom DSL.</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://www.contextnexus.dev/" target="_blank" class="cta-button secondary">View Site <i class="fa-solid fa-arrow-up-right-from-square"></i></a>
                         </div>
                     </div>
-                    <div class="project-buttons">
-                         <a href="https://www.contextnexus.dev/" target="_blank" class="cta-button" data-key="viewLiveSite">View Live Site</a>
-                    </div>
                 </div>
-            </div>
 
-            <!-- Favorite Project 2: E-Efimerevon -->
-            <div class="favorite-project-item fade-in" data-technologies="kotlin jetpack-compose mvvm firebase firestore osm android-sdk android-studio gradle">
-                <div class="project-text-centered">
-                    <img src="assets/pharmacy-logo.png" alt="E-Efimerevon Logo" class="project-logo">
-                    <p class="project-description-subtitle" data-key="pharmacySubtitle">Modern Android App for On-Duty Pharmacies</p>
-                    <p data-key="pharmacyDescription">A native Android application designed to help users in Greece instantly locate on-duty pharmacies. Built entirely with modern technologies like Kotlin, Jetpack Compose, and Firebase, it offers a clean, fast, and user-friendly experience.</p>
-                    <h4 data-key="pharmacyKeyFeatures">Key Features & Contributions:</h4>
-                    <ul class="key-contributions">
-                        <li data-key="pharmacyFeature1">Developed a fluid and intuitive UI from scratch using Jetpack Compose, focusing on a clean and accessible user experience.</li>
-                        <li data-key="pharmacyFeature2">Implemented a clean MVVM architecture to ensure a scalable, maintainable, and testable codebase.</li>
-                        <li data-key="pharmacyFeature3">Integrated Firebase & Firestore for real-time data synchronization, ensuring users always have the most up-to-date pharmacy information.</li>
-                        <li data-key="pharmacyFeature4">Added full multilingual support for both English and Greek.</li>
-                        <li data-key="pharmacyFeature5">Engineered a dynamic theme system for a seamless light/dark mode experience.</li>
-                    </ul>
-                    <div class="tech-tags">
-                        <span>Kotlin</span><span>Jetpack Compose</span><span>MVVM</span><span>Firebase</span><span>Firestore</span><span>OSM</span>
+                <!-- Featured Project 2: E-Efimerevon -->
+                <div class="project-card fade-in">
+                    <div class="project-image">
+                        <img src="assets/pharmacy-logo.png" alt="E-Efimerevon Platform Logo">
                     </div>
-                    <div class="project-illustration-container">
-                        <div id="e-efimerevon-animation" class="contextnexus-illustration">
-                            <div class="code code-kotlin"><header><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.9999 6.675L13.1999 6.075C12.9999 5.975 12.8999 5.775 12.9999 5.675L13.8999 3.975C14.4999 2.775 13.1999 1.475 11.9999 2.075L10.2999 2.975C10.1999 3.075 9.9999 2.975 9.8999 2.775L9.2999 0.975C8.8999 -0.325 7.0999 -0.325 6.6999 0.975L6.0999 2.775C5.9999 2.975 5.7999 3.075 5.6999 2.975L3.9999 2.075C2.7999 1.475 1.4999 2.775 2.0999 3.975L2.9999 5.675C3.0999 5.775 2.9999 5.975 2.7999 6.075L0.999902 6.675C-0.300098 7.075 -0.300098 8.975 0.999902 9.375L2.7999 9.975C2.9999 9.975 3.0999 10.175 2.9999 10.275L2.0999 11.975C1.4999 13.175 2.7999 14.475 3.9999 13.875L5.6999 12.975C5.8999 12.875 6.0999 12.975 6.0999 13.175L6.6999 14.975C7.0999 16.275 8.9999 16.275 9.3999 14.975L9.9999 13.175C10.0999 12.975 10.2999 12.875 10.3999 12.975L12.0999 13.875C13.2999 14.475 14.5999 13.175 13.9999 11.975L12.9999 10.275C12.8999 10.075 12.9999 9.875 13.1999 9.875L14.9999 9.275C16.2999 8.875 16.2999 7.075 14.9999 6.675ZM7.9999 10.375C6.6999 10.375 5.5999 9.275 5.5999 7.975C5.5999 6.675 6.6999 5.575 7.9999 5.575C9.2999 5.575 10.3999 6.675 10.3999 7.975C10.3999 9.275 9.2999 10.375 7.9999 10.375Z" fill="#4C4F5A"/></svg><h1>Kotlin</h1></header><div class="code-content"><code><p class="line-1"><span class="c-p">class</span> <span class="c-g">PharmacyViewModel</span> {</p><p class="line-2"><span class="c-c">// Fetch from Firestore</span></p><p class="line-3"><span class="c-p">fun</span> <span class="c-o">loadPharmacies</span>() {</p><p class="line-4"><span class="c-c">// ... suspend fun ...</span></p><p class="line-5">}</p></code></div></div>
-                            <div class="code code-compose"><header><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.9999 6.675L13.1999 6.075C12.9999 5.975 12.8999 5.775 12.9999 5.675L13.8999 3.975C14.4999 2.775 13.1999 1.475 11.9999 2.075L10.2999 2.975C10.1999 3.075 9.9999 2.975 9.8999 2.775L9.2999 0.975C8.8999 -0.325 7.0999 -0.325 6.6999 0.975L6.0999 2.775C5.9999 2.975 5.7999 3.075 5.6999 2.975L3.9999 2.075C2.7999 1.475 1.4999 2.775 2.0999 3.975L2.9999 5.675C3.0999 5.775 2.9999 5.975 2.7999 6.075L0.999902 6.675C-0.300098 7.075 -0.300098 8.975 0.999902 9.375L2.7999 9.975C2.9999 9.975 3.0999 10.175 2.9999 10.275L2.0999 11.975C1.4999 13.175 2.7999 14.475 3.9999 13.875L5.6999 12.975C5.8999 12.875 6.0999 12.975 6.0999 13.175L6.6999 14.975C7.0999 16.275 8.9999 16.275 9.3999 14.975L9.9999 13.175C10.0999 12.975 10.2999 12.875 10.3999 12.975L12.0999 13.875C13.2999 14.475 14.5999 13.175 13.9999 11.975L12.9999 10.275C12.8999 10.075 12.9999 9.875 13.1999 9.875L14.9999 9.275C16.2999 8.875 16.2999 7.075 14.9999 6.675ZM7.9999 10.375C6.6999 10.375 5.5999 9.275 5.5999 7.975C5.5999 6.675 6.6999 5.575 7.9999 5.575C9.2999 5.575 10.3999 6.675 10.3999 7.975C10.3999 9.275 9.2999 10.375 7.9999 10.375Z" fill="#4C4F5A"/></svg><h1>Compose</h1></header><div class="code-content"><code><p class="line-1"><span class="c-y">@Composable</span></p><p class="line-2"><span class="c-p">fun</span> <span class="c-g">PharmacyList</span>() {</p><p class="line-3"><span class="c-b">LazyColumn</span> {</p><p class="line-4"><span class="c-c">// ... items ...</span></p><p class="line-5">}</p></code></div></div>
-                            <div class="editor-block"></div>
+                    <div class="project-content">
+                        <h3 class="project-title">E-Efimerevon Platform</h3>
+                        <p class="project-description">
+                            A real-time, multi-component pharmacy platform designed to help citizens find on-duty pharmacies with available stock. The system connects a public Android app, a private inventory desktop app, and a smart security camera to a central, server-authoritative backend.
+                        </p>
+                        <h4 class="contributions-title">Key Features & Architecture:</h4>
+                        <ul class="contributions-list">
+                            <li><strong>Citizen App:</strong> Built with Kotlin & Jetpack Compose for a simple, map-based UI showing live medicine availability.</li>
+                            <li><strong>Inventory App:</strong> A JavaFX desktop client for staff to manage stock with barcode scanner support.</li>
+                            <li><strong>Smart Security:</strong> Integrated local face recognition using JavaFX and OpenCV.</li>
+                            <li><strong>Backend:</strong> A server-authoritative Ktor service using Firebase Firestore to ensure data consistency and privacy.</li>
+                        </ul>
+                        <div class="project-links">
+                            <a href="https://github.com/RaeXp97/E-efimerevon-inv-managment" target="_blank" class="cta-button secondary">View on GitHub <i class="fa-brands fa-github"></i></a>
                         </div>
                     </div>
-                    <div class="project-buttons">
-                        <a href="https://github.com/RaeXp917/On-Duty-Pharmacies-App" target="_blank" class="cta-button" data-key="viewOnGithub">View on GitHub</a>
-                    </div>
                 </div>
-            </div>
 
+            </div>
         </section>
 
         <section id="other-projects" class="container">
-             <h2 class="fade-in" data-key="otherProjectsTitle">Other Projects</h2>
+             <h2 class="section-title fade-in">Other Projects</h2>
              <div id="github-project-grid" class="project-grid">
-                
+                <!-- GitHub projects will be injected here by script.js -->
              </div>
         </section>
 
         <section id="resume" class="container">
-            <h2 class="fade-in" data-key="resumeSectionTitle">Resume</h2>
+            <h2 class="section-title fade-in">Resume</h2>
             <div class="resume-controls fade-in">
-                <button id="toggle-resume-btn" class="cta-button" data-key="viewResumeBtn">View My Resume</button>
+                <button id="toggle-resume-btn" class="cta-button">View My Resume</button>
             </div>
             <div id="resume-container" class="resume-container fade-in">
                 <div class="resume-viewer">
                     <iframe src="Klearxos_Xlioumphs_Resume.pdf" title="Klearxos Xlioumphs Resume"></iframe>
                 </div>
-                <a href="Klearxos_Xlioumphs_Resume.pdf" download="KlearxosXlioumphs_Resume.pdf" class="cta-button secondary" data-key="downloadButton">Download PDF</a>
+                <a href="Klearxos_Xlioumphs_Resume.pdf" download="Klearxos_Xlioumphs_Resume.pdf" class="cta-button secondary">Download PDF</a>
             </div>
         </section>
 
        
         <section id="certifications" class="container">
-            <h2 class="fade-in" data-key="certificationsTitle">Certifications</h2>
+            <h2 class="section-title fade-in">Certifications</h2>
             <div class="certifications-grid fade-in">
                 <div class="certification-item">
                     <a href="Udemy_Android_Kotlin_Certificate.png" target="_blank">
@@ -216,11 +269,68 @@
             </div>
         </section>
 
+        <!-- New Contact Section -->
         <section id="contact" class="container">
-            <h2 class="fade-in" data-key="contactTitle">Get In Touch</h2>
-            <p class="fade-in" data-key="contactText">I'm always open to discussing new projects and opportunities.</p>
-            <div class="contact-links fade-in">
-                <a href="mailto:klearxos.xlioumphs@gmail.com" class="cta-button" data-key="contactButton">Email Me</a>
+            <h2 class="section-title fade-in">&lt;GET_IN_TOUCH/&gt;</h2>
+            <div class="contact-grid fade-in">
+                <!-- Left Column: Info -->
+                <div class="contact-details">
+                    <h3>Let's Build Something Amazing Together</h3>
+                    <p>Ready to bring your ideas to life? Whether you need a web application, mobile app, or custom software solution, I'm here to help you succeed.</p>
+                    
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fa-solid fa-envelope"></i></div>
+                        <div class="info-text">
+                            <h4>Email</h4>
+                            <a href="mailto:klearxos.xlioumphs@gmail.com">klearxos.xlioumphs@gmail.com</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fa-solid fa-phone"></i></div>
+                        <div class="info-text">
+                            <h4>Phone</h4>
+                            <a href="tel:+306983600653">+30 698 360 0653</a>
+                        </div>
+                    </div>
+                    <div class="info-card">
+                        <div class="info-icon"><i class="fa-solid fa-location-dot"></i></div>
+                        <div class="info-text">
+                            <h4>Location</h4>
+                            <span>Thessaloniki, Greece</span>
+                        </div>
+                    </div>
+
+                    <h4 class="follow-me-title">Follow Me</h4>
+                    <div class="contact-socials">
+                        <a href="https://github.com/RaeXp917" target="_blank" title="GitHub"><i class="fa-brands fa-github"></i></a>
+                        <a href="https://www.linkedin.com/in/klearxos-xlioumphs/" target="_blank" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                    </div>
+                </div>
+
+                <!-- Right Column: Form -->
+                <div class="contact-form-container">
+                    <form id="contact-form" action="#" method="POST">
+                        <div class="form-group">
+                            <label for="name">NAME.REQUIRED</label>
+                            <input type="text" id="name" name="name" placeholder="Your name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">EMAIL.REQUIRED</label>
+                            <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">SUBJECT.OPTIONAL</label>
+                            <input type="text" id="subject" name="subject" placeholder="Project discussion">
+                        </div>
+                        <div class="form-group">
+                            <label for="message">MESSAGE.REQUIRED</label>
+                            <textarea id="message" name="message" rows="5" placeholder="Tell me about your project..." required></textarea>
+                        </div>
+                        <button type="submit" class="cta-button send-btn">
+                            <i class="fa-solid fa-paper-plane"></i> SEND MESSAGE
+                        </button>
+                    </form>
+                </div>
             </div>
         </section>
     </main>
@@ -231,15 +341,13 @@
                  <a href="https://github.com/RaeXp917" target="_blank" title="GitHub"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>GitHub</title><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
                 <a href="https://www.linkedin.com/in/klearxos-xlioumphs/" target="_blank" title="LinkedIn"><svg role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>LinkedIn</title><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
             </div>
-            <p>&copy; 2025 Klearxos Xlioumphs. <span data-key="footerRights">All rights reserved.</span></p>
+            <p>&copy; 2025 Klearxos Xlioumphs. All rights reserved.</p>
         </div>
     </footer>
     
-    <div class="lang-switch-floating">
-        <button id="lang-en-btn" title="Switch to English"><img src="assets/flag-en.png" alt="English Flag"></button>
-        <button id="lang-gr-btn" title="Switch to Greek"><img src="assets/flag-gr.png" alt="Greek Flag"></button>
-    </div>
-
+    <!-- JS Libraries -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
     <script src="script.js" defer></script>
 </body>
 </html>
