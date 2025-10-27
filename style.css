@@ -124,7 +124,7 @@ body {
     border-radius: 2px;
 }
 section { transition: background-color 0.4s var(--easing-curve); }
-#about, #skills, #other-projects, #contact, #certifications { background-color: var(--surface-color); }
+#about, #skills, #other-projects, #contact, #certifications, #resume { background-color: var(--surface-color); }
 #featured-projects { background-color: var(--bg-color); padding-top: 60px; padding-bottom: 20px; }
 
 /* --- About Me Section --- */
@@ -302,6 +302,81 @@ section { transition: background-color 0.4s var(--easing-curve); }
     top: 2px;
 }
 
+/* --- Resume Section Logic (FIXED) --- */
+#resume-container {
+    max-height: 0;
+    overflow: hidden;
+    opacity: 0;
+    visibility: hidden;
+    transition: 
+        max-height 0.6s var(--easing-curve),
+        opacity 0.6s var(--easing-curve),
+        visibility 0.6s,
+        margin-top 0.6s;
+    margin-top: 0;
+}
+
+#resume-container.open {
+    max-height: 1000px; /* A large value to ensure the iframe fits */
+    opacity: 1;
+    visibility: visible;
+    margin-top: 40px; /* Add some space between the button and the viewer */
+}
+
+.resume-viewer {
+    width: 100%;
+    height: 800px; /* Adjust height as needed */
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    overflow: hidden; /* Hides scrollbars if iframe is larger */
+    margin-bottom: 20px;
+}
+
+.resume-viewer iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+}
+
+/* --- Certifications Section (FIXED) --- */
+.certifications-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    justify-content: center;
+}
+
+.certification-item {
+    background-color: var(--bg-color);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    padding: 15px;
+    transition: transform 0.3s var(--easing-curve), box-shadow 0.3s var(--easing-curve);
+}
+
+.certification-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+.certification-item a {
+    display: block;
+    height: 250px; /* Fixed height for a uniform grid */
+    background-color: #fff; /* White background for letterboxing */
+    border-radius: 8px;
+    overflow: hidden;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.certification-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Scales image to fit without distortion */
+    display: block;
+}
+
+
 /* --- NEW Contact Section --- */
 .contact-grid {
     display: grid;
@@ -442,4 +517,5 @@ footer { border-top: 1px solid var(--border-color); padding: 30px; color: #888; 
     .image-wrapper { width: 220px; height: 220px; }
     .hero-buttons { flex-direction: column; align-items: center; }
     .project-grid { grid-template-columns: 1fr; }
+    .certifications-grid { grid-template-columns: 1fr; }
 }
