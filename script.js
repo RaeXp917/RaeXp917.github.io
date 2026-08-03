@@ -187,7 +187,19 @@ document.addEventListener('DOMContentLoaded', () => {
     const resumeContainer = document.getElementById('resume-container');
 
     if (toggleResumeBtn && resumeContainer) {
+        const resumeFrame = resumeContainer.querySelector('iframe');
+        // Mobile browsers can't render a PDF inside an iframe reliably (they force a
+        // download instead), so we never load the embed on small screens — mobile users
+        // get the "Open in New Tab" / "Download" buttons instead.
+        const isMobile = window.matchMedia('(max-width: 768px)');
+
         toggleResumeBtn.addEventListener('click', () => {
+            // Lazy-load the PDF only when the visitor opts in, and only on desktop.
+            // Loading it eagerly at page load caused mobile to auto-prompt a download.
+            if (!isMobile.matches && resumeFrame && !resumeFrame.getAttribute('src') && resumeFrame.dataset.src) {
+                resumeFrame.setAttribute('src', resumeFrame.dataset.src);
+            }
+
             const isOpen = resumeContainer.classList.toggle('open');
             toggleResumeBtn.textContent = isOpen ? "Hide My Resume" : "View My Resume";
             if (isOpen) {

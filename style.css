@@ -317,7 +317,7 @@ section { transition: background-color 0.4s var(--easing-curve); }
 }
 
 #resume-container.open {
-    max-height: 1000px; /* A large value to ensure the iframe fits */
+    max-height: 1200px; /* A large value to ensure the iframe fits */
     opacity: 1;
     visibility: visible;
     margin-top: 40px; /* Add some space between the button and the viewer */
@@ -336,6 +336,13 @@ section { transition: background-color 0.4s var(--easing-curve); }
     width: 100%;
     height: 100%;
     border: none;
+}
+
+.resume-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 /* --- Certifications Section (FIXED) --- */
@@ -509,6 +516,16 @@ footer { border-top: 1px solid var(--border-color); padding: 30px; color: #888; 
 
 @media (min-width: 768px) { 
     .skills-container { grid-template-columns: 1fr 1fr; gap: 60px; }
+}
+
+@media (max-width: 768px) {
+    /* Inline PDF embedding is unreliable on phones/tablets (browsers force a
+       download instead of rendering), so hide the embed and let visitors use the
+       "Open in New Tab" / "Download" buttons instead. */
+    .resume-viewer { display: none; }
+    #resume-container.open { max-height: 400px; }
+    .resume-actions { flex-direction: column; align-items: center; }
+    .resume-actions .cta-button { width: 100%; max-width: 320px; text-align: center; }
 }
 
 @media (max-width: 576px) {

@@ -249,10 +249,20 @@
                 <button id="toggle-resume-btn" class="cta-button">View My Resume</button>
             </div>
             <div id="resume-container" class="resume-container fade-in">
+                <!-- The PDF is lazy-loaded via data-src (see script.js) so it is only
+                     fetched when the visitor opens the viewer. Loading it eagerly caused
+                     mobile browsers to auto-prompt a download on page load. -->
                 <div class="resume-viewer">
-                    <iframe src="Klearxos_Xlioumphs_Resume.pdf" title="Klearxos Xlioumphs Resume"></iframe>
+                    <iframe data-src="Klearxos_Xlioumphs_Resume.pdf" title="Klearxos Xlioumphs Resume" loading="lazy"></iframe>
                 </div>
-                <a href="Klearxos_Xlioumphs_Resume.pdf" download="Klearxos_Xlioumphs_Resume.pdf" class="cta-button secondary">Download PDF</a>
+                <div class="resume-actions">
+                    <a href="Klearxos_Xlioumphs_Resume.pdf" target="_blank" rel="noopener" class="cta-button secondary">
+                        <i class="fa-solid fa-up-right-from-square"></i> Open in New Tab
+                    </a>
+                    <a href="Klearxos_Xlioumphs_Resume.pdf" download="Klearxos_Xlioumphs_Resume.pdf" class="cta-button secondary">
+                        <i class="fa-solid fa-download"></i> Download PDF
+                    </a>
+                </div>
             </div>
         </section>
 
