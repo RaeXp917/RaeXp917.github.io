@@ -58,8 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initialize with new strings
     const typedStrings = [
         "Mobile Developer.",
-        "Android & iOS Developer.",
-        "Backend Developer."
+        "Android & iOS Developer."
     ];
     initializeTypedJs(typedStrings);
 
