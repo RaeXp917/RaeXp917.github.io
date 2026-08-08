@@ -80,6 +80,7 @@ body {
 .hero h1 { font-size: 4rem; font-weight: 700; color: var(--heading-color); margin: 0 0 10px 0; }
 .gradient-text { background: linear-gradient(90deg, var(--primary-color), var(--secondary-color)); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; text-fill-color: transparent; }
 .hero h2 { font-size: 2rem; font-weight: 600; color: var(--heading-color); margin: 10px 0 20px; }
+.hero-role { font-size: 1.05rem; font-weight: 600; letter-spacing: 2px; text-transform: uppercase; color: var(--secondary-color); margin: 6px 0 4px; }
 .hero-description { font-size: 1.1rem; max-width: 500px; margin-bottom: 40px; }
 .hero-buttons { display: flex; gap: 20px; }
 .cta-button { display: inline-flex; align-items: center; gap: 10px; padding: 12px 25px; border-radius: 8px; text-decoration: none; font-weight: 600; transition: all 0.3s var(--easing-curve); border: 2px solid transparent; cursor: pointer; }
