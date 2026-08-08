@@ -525,7 +525,7 @@ footer { border-top: 1px solid var(--border-color); padding: 30px; color: #888; 
     .resume-viewer { display: none; }
     #resume-container.open { max-height: 400px; }
     .resume-actions { flex-direction: column; align-items: center; }
-    .resume-actions .cta-button { width: 100%; max-width: 320px; text-align: center; }
+    .resume-actions .cta-button { box-sizing: border-box; justify-content: center; width: 100%; max-width: 320px; text-align: center; }
 }
 
 @media (max-width: 576px) {
