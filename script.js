@@ -45,6 +45,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
         const options = {
             strings: strings,
+            // Render as plain text, not HTML. Without this Typed.js treats a bare
+            // "&" (e.g. "Android & iOS") as the start of an HTML entity and pauses
+            // mid-word waiting for a ";", which caused a visible stutter.
+            contentType: 'null',
             typeSpeed: 70,
             backSpeed: 40,
             backDelay: 2000,
