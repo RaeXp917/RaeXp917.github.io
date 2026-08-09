@@ -81,7 +81,7 @@ document.addEventListener('DOMContentLoaded', () => {
             </div>
             <div class="project-content">
                 <h3 class="project-title">Personal Cloud</h3>
-                <p class="project-description">Self-hosted cloud storage with Seafile in Docker on Windows 11, fronted by a Cloudflare Tunnel for secure access.</p>
+                <p class="project-description">Self hosted cloud storage with Seafile in Docker on Windows 11, fronted by a Cloudflare Tunnel for secure access.</p>
                 <div class="tech-tags">
                     <span>Docker</span><span>Seafile</span><span>MariaDB</span><span>Cloudflare</span>
                 </div>
