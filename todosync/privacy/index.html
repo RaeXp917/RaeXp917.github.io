@@ -1,0 +1,190 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="TODOSync Privacy Policy">
+    <link rel="canonical" href="https://raexp917.github.io/todosync/privacy/">
+    <title>TODOSync Privacy Policy</title>
+    <style>
+        :root {
+            color-scheme: dark;
+            --background: #0a0a14;
+            --surface: #161b22;
+            --heading: #e6edf3;
+            --text: #c3cad5;
+            --muted: #a0aec0;
+            --primary: #7c73ff;
+            --secondary: #c778dd;
+            --border: #30363d;
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html {
+            background: var(--background);
+        }
+
+        body {
+            margin: 0;
+            color: var(--text);
+            background:
+                radial-gradient(circle at top left, rgba(79, 70, 229, 0.14), transparent 32rem),
+                var(--background);
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+            font-size: 1rem;
+            line-height: 1.7;
+        }
+
+        main {
+            width: min(100% - 2rem, 54rem);
+            margin: 0 auto;
+            padding: clamp(2.5rem, 7vw, 5rem) 0;
+        }
+
+        article {
+            padding: clamp(1.5rem, 5vw, 3.5rem);
+            background: rgba(22, 27, 34, 0.96);
+            border: 1px solid var(--border);
+            border-radius: 1.25rem;
+            box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.28);
+        }
+
+        h1,
+        h2 {
+            color: var(--heading);
+            line-height: 1.25;
+        }
+
+        h1 {
+            margin: 0 0 1.25rem;
+            font-size: clamp(2rem, 7vw, 3.25rem);
+            letter-spacing: -0.035em;
+        }
+
+        h1::after {
+            display: block;
+            width: 5rem;
+            height: 0.25rem;
+            margin-top: 1rem;
+            border-radius: 999px;
+            background: linear-gradient(90deg, var(--primary), var(--secondary));
+            content: "";
+        }
+
+        h2 {
+            margin: 2.5rem 0 0.75rem;
+            font-size: clamp(1.3rem, 4vw, 1.65rem);
+        }
+
+        p,
+        ul {
+            margin: 0.85rem 0;
+        }
+
+        ul {
+            padding-left: 1.4rem;
+        }
+
+        li + li {
+            margin-top: 0.8rem;
+        }
+
+        strong {
+            color: var(--heading);
+        }
+
+        a {
+            color: #b8b3ff;
+            text-underline-offset: 0.2em;
+        }
+
+        a:hover,
+        a:focus-visible {
+            color: #e1dfff;
+        }
+
+        code {
+            padding: 0.08em 0.3em;
+            color: var(--heading);
+            background: var(--background);
+            border: 1px solid var(--border);
+            border-radius: 0.3rem;
+            font-size: 0.9em;
+        }
+
+        .intro {
+            color: var(--muted);
+            font-size: 1.05rem;
+        }
+
+        .contact {
+            margin-bottom: 2rem;
+        }
+
+        @media (max-width: 36rem) {
+            main {
+                width: min(100% - 1rem, 54rem);
+                padding: 0.5rem 0;
+            }
+
+            article {
+                padding: 1.35rem;
+                border-radius: 0.9rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <main>
+        <article>
+            <h1>TODOSync Privacy Policy</h1>
+
+            <p class="intro">TODOSync is a free proprietary product with JetBrains, VS Code, and Android clients plus a companion backend. This policy reflects the implementation reviewed on August 20, 2026.</p>
+
+            <p class="contact"><strong>Contact:</strong> <a href="mailto:todosync.plugin@gmail.com">todosync.plugin@gmail.com</a></p>
+
+            <h2>What TODOSync collects</h2>
+
+            <ul>
+                <li><strong>Account:</strong> your email address. For email accounts, TODOSync stores a bcrypt hash of your password, never the plaintext. If you use Google authentication, TODOSync receives your Google account identifier and display name. Your account also stores the selected default project view and whether you acknowledged the one-time Quick Comment introduction, so those settings can be restored on another Android device.</li>
+                <li><strong>Project and device metadata:</strong> a device name, a project label, and a <strong>salted hash</strong> of your local project path. The raw path is never stored.</li>
+                <li><strong>Project file metadata:</strong> for every supported, safe project file the IDE indexes, TODOSync may receive its project-relative path, line count, language hint, safe file-version fingerprint, and tracked-comment count/metadata. A file with zero tracked comments can still appear in the Files browser so you can attach a comment to an exact line.</li>
+                <li><strong>Your TODOs:</strong> the TODO/FIXME/NOTE comment text you manage, their file paths and line info, and cryptographic hashes used to safely match a change to the right line. Quick notes you write are stored too.</li>
+                <li><strong>Advertising and consent:</strong> free users can receive ads through Google AdMob. Google Mobile Ads and its advertising partners can process device information, IP address, advertising identifiers when available, general location derived from network information, ad interactions, and diagnostics. Google User Messaging Platform stores and communicates required privacy choices.</li>
+                <li><strong>Google Play purchases:</strong> Google Play processes the optional purchase that removes ads. TODOSync receives the product identifier, purchase token, purchase state, acknowledgement state, and localized product information. The authenticated TODOSync backend encrypts purchase tokens with AES 256 GCM, indexes only their SHA 256 hashes for replay detection, and binds verified ownership to one TODOSync account. TODOSync does not receive or store payment card details.</li>
+            </ul>
+
+            <p><strong>Normal sync never uploads or stores complete source files, complete source lines, surrounding code, or arbitrary snippets.</strong> The file inventory is metadata-only; when a tracked comment exists, only its extracted TODO/FIXME/NOTE message and safety metadata are sent. A single file's full text is transmitted only when you explicitly open that one file in the read-only mobile code viewer: your owning IDE returns just that file for that one request, it is shown read-only, and it is never persisted to the database, an audit event, a log, analytics, or crash reports. If the owning IDE is offline the viewer reports that the source is unavailable and never falls back to a stored copy. This on-demand viewer is separate from advertising and analytics, which still never receive any source. Android release builds use Firebase Crashlytics, Firebase Analytics, and Firebase Performance Monitoring. Crashlytics collects crash/ANR stack traces, relevant TODOSync state, device metadata, and installation/session identifiers. Analytics records privacy-safe, product-level events only — sign-in, opening a project, creating a quick note, requesting a tracked comment change, the ad-removal purchase flow, and opening the privacy policy — with generic parameters such as sign-in method and change type. Performance Monitoring measures app start, screen rendering, and network request timing. <strong>Android analytics never contains your email, account identifier, project names, file paths, TODO/comment text, quick note text, session tokens, or purchase tokens.</strong> Analytics and Performance collection are disabled in debug builds. AdMob ad-revenue and Google Play purchase measurement, where enabled, are reported by Google's own AdMob/Play links, not by duplicated TODOSync events.</p>
+
+            <h2>Why, and who else sees it</h2>
+
+            <p>Data is used to provide the synchronization you request, restore your account-level project-view preference, show advertising to free users, process consent choices, restore the optional ad removal purchase, diagnose crashes, and measure product usage and performance. It can pass through the TODOSync hosting and database providers, the email provider used for verification codes, Google authentication, Firebase Crashlytics, Firebase Analytics, Firebase Performance Monitoring, Google AdMob, Google User Messaging Platform, and Google Play Billing. TODOSync does not sell your TODOSync account or project data, use it to train AI, or provide source code to advertising partners.</p>
+
+            <h2>Your advertising choices</h2>
+
+            <p>When Google requires an advertising privacy choice, TODOSync presents the Google consent form and provides an Ad privacy choices item in Settings. TODOSync requests ads only when that consent system reports that ads may be requested. Purchasing Support TODOSync and remove ads stops TODOSync from requesting banner and interstitial ads. The purchase is restored through the eligible Google Play account.</p>
+
+            <h2>Security</h2>
+
+            <p>Passwords use bcrypt hashes and backend refresh tokens are stored only as hashes. The JetBrains plugin keeps session tokens in the IDE's secure credential store. Android session tokens are encrypted with AES 256 GCM using a key from Android Keystore and are excluded from device backup. Production clients require HTTPS. Debug network logging is limited to request metadata and is disabled in release builds.</p>
+
+            <p>Ad removal is not trusted from Android local storage. The backend verifies the fixed application package, product identifier, Play purchase state, unconsumed quantity, and server-derived account binding. Authenticated Google Play notifications and scheduled verification update refunds and revocations.</p>
+
+            <h2>Deleting your data</h2>
+
+            <p>You can delete your account and all associated data at any time (the app calls DELETE /auth/me, which removes your projects, files, todos, notes, devices, sessions, and the account itself), or email <a href="mailto:todosync.plugin@gmail.com">todosync.plugin@gmail.com</a> and it will be done.</p>
+
+            <p>Account deletion removes data from the active TODOSync database. Infrastructure backups may retain encrypted historical copies until they expire under the hosting/database provider's backup policy.</p>
+
+            <p>Crashlytics reports, advertising data, consent records, and Google Play purchase records follow the separate retention and deletion processes of the relevant Google service. They are not removed by deleting the TODOSync backend account.</p>
+
+            <h2>Changes and status</h2>
+
+            <p>TODOSync is maintained on a best effort basis, with no guarantee of continuous development. If this policy changes, the updated version will be distributed with the software and published at the public Privacy Policy URL used by its store listings.</p>
+        </article>
+    </main>
+</body>
+</html>
